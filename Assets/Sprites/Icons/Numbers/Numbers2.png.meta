@@ -1,14 +1,21 @@
 fileFormatVersion: 2
-guid: e7a15bb1dae0bb04bbb199357c82a782
-timeCreated: 1499440055
+guid: e86fcd57ae95c1b45a9231f89518f199
+timeCreated: 1499440443
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Numbers_0
-    21300002: Numbers_1
-    21300004: Numbers_2
-    21300006: Numbers_3
-    21300008: Numbers_4
+    21300000: Numbers2_0
+    21300002: Numbers2_1
+    21300004: Numbers2_2
+    21300006: Numbers2_3
+    21300008: Numbers2_4
+    21300010: Numbers2_5
+    21300012: Numbers2_6
+    21300014: Numbers2_7
+    21300016: Numbers2_8
+    21300018: Numbers2_9
+    21300020: Numbers2_10
+    21300022: Numbers2_11
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -131,65 +138,156 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Numbers_0
+      name: Numbers2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 43
-        height: 43
+        x: 36
+        y: 208
+        width: 128
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Numbers_1
+      name: Numbers2_1
       rect:
         serializedVersion: 2
-        x: 60
-        y: 1
-        width: 43
-        height: 43
+        x: 236
+        y: 208
+        width: 128
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Numbers_2
+      name: Numbers2_2
       rect:
         serializedVersion: 2
-        x: 120
-        y: 1
-        width: 43
-        height: 43
+        x: 436
+        y: 208
+        width: 128
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Numbers_3
+      name: Numbers2_3
       rect:
         serializedVersion: 2
-        x: 180
-        y: 1
-        width: 43
-        height: 43
+        x: 636
+        y: 208
+        width: 128
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Numbers_4
+      name: Numbers2_4
       rect:
         serializedVersion: 2
-        x: 240
-        y: 1
-        width: 43
-        height: 43
+        x: 836
+        y: 208
+        width: 128
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Numbers2_5
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 208
+        width: 128
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Numbers2_6
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 27
+        width: 128
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Numbers2_7
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 27
+        width: 128
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Numbers2_8
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 27
+        width: 128
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Numbers2_9
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 27
+        width: 128
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Numbers2_10
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 27
+        width: 128
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Numbers2_11
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 27
+        width: 128
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
