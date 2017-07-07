@@ -24,6 +24,12 @@ namespace Common.JSON
             public T[] Items;
         }
 
+        /// <summary>
+        /// Load from file location
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="fileLocation"></param>
+        /// <returns></returns>
         public static List<T> Load<T>(string fileLocation)
         {
             if (!File.Exists(fileLocation))
@@ -39,6 +45,12 @@ namespace Common.JSON
 
         }
 
+        /// <summary>
+        /// Save list to file location
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="fileLocation"></param>
+        /// <param name="elements"></param>
         public static void SAVE<T>(string fileLocation,T[] elements)
         {
             Wrapper<T> wrapper = new Wrapper<T>();

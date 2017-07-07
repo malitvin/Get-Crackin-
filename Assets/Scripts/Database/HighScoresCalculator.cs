@@ -2,7 +2,6 @@
 using UnityEngine;
 
 //C#
-using System.Linq;
 using System.Collections.Generic;
 
 //Game
@@ -14,8 +13,16 @@ namespace Database
     {
         private List<HighScore> updatedHighScores;
 
+        public List<HighScore> GetUpdatedHighScores()
+        {
+            REFRESH_HighScores();
+            return updatedHighScores;
+        }
 
-        private void UpdateHighScores()
+        /// <summary>
+        /// Refresh our high score list
+        /// </summary>
+        private void REFRESH_HighScores()
         {
             updatedHighScores = JSONHelpers.Load<HighScore>(GetFileLocation());
          }
@@ -27,24 +34,24 @@ namespace Database
 
         public bool AttemptToAddScore(string name,int score)
         {
-            UpdateHighScores();
+            //make new high score and populate
+            HighScore highScore = new HighScore(name,score);
+
+            REFRESH_HighScores();
+
             if(updatedHighScores == null)
             {
                 //This is the first person that has played
                 updatedHighScores = new List<HighScore>();
-                HighScore highScore = new HighScore();
-                highScore.name = name;
-                highScore.score = score;
-                updatedHighScores.Add(highScore);
-
-                SaveHighScores();
-
                 return true;
             }
-            else
-            {
-                
-            }
+
+            //add it to list
+            updatedHighScores.Add(highScore);
+
+            //save and return true
+            SaveHighScores();
+
             return false;
         }
 

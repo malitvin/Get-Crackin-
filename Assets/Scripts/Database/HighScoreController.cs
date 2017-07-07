@@ -42,7 +42,7 @@ namespace Database
         /// <returns></returns>
         public List<HighScore> GetHighScores()
         {
-            return null;
+            return highScoreCalculator.GetUpdatedHighScores();
         }
 
     }
