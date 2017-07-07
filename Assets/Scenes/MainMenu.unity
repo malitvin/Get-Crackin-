@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb76a0d9bee6004c91347f23d79fa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShapeSprite: {fileID: 21300000, guid: ce3dd47ee8b530348848bfd2355b0a9a, type: 3}
+  ShapeSprite: {fileID: 21300000, guid: e7a15bb1dae0bb04bbb199357c82a782, type: 3}
   Speed: 1
   AutomaticMaxSize: 1
   MaxSize: 4
@@ -406,6 +406,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 953488889}
+  - component: {fileID: 953488891}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -427,6 +428,17 @@ Transform:
   m_Father: {fileID: 426736410}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &953488891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 953488888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fcb35b0b0295a40916ef50344d1d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &990895779
 GameObject:
   m_ObjectHideFlags: 0
