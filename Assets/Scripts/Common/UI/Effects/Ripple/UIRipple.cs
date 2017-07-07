@@ -12,11 +12,6 @@ namespace Common.UI.Effects.Ripple
     {
 
         /// <summary> 
-        /// the Sprite that will render
-        /// </summary>
-        public Sprite ShapeSprite;
-
-        /// <summary> 
         /// the speed at which the ripple will grow
         /// </summary>
         [Range(0.25f, 5f)]
@@ -106,8 +101,10 @@ namespace Common.UI.Effects.Ripple
             //create the GameObject and add components
             GameObject ThisRipple = new GameObject();
             ThisRipple.AddComponent<Ripple>();
-            ThisRipple.AddComponent<Image>();
-            ThisRipple.GetComponent<Image>().sprite = ShapeSprite;
+            Image image = ThisRipple.AddComponent<Image>();
+
+            SetSprite(image);
+
             ThisRipple.name = "Ripple";
 
             //set the parent
@@ -128,6 +125,15 @@ namespace Common.UI.Effects.Ripple
             ThisRipple.GetComponent<Ripple>().MaxSize = MaxSize;
             ThisRipple.GetComponent<Ripple>().StartColor = StartColor;
             ThisRipple.GetComponent<Ripple>().EndColor = EndColor;
+        }
+
+        /// <summary>
+        /// Override for setting sprite
+        /// </summary>
+        /// <param name="ThisRipple"></param>
+        protected virtual void SetSprite(Image ThisRipple)
+        {
+      
         }
 
 

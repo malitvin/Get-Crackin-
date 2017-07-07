@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Common\UI\Effects\Ripple\RippleTimer.cs" />
     <Compile Include="Assets\Scripts\Common\UI\Effects\Ripple\UIRipple.cs" />
     <Compile Include="Assets\Scripts\Common\UI\ImageAspect.cs" />
+    <Compile Include="Assets\Scripts\UI\Effects\NumberRipple.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIEvents.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIObserver.cs" />
   </ItemGroup>
