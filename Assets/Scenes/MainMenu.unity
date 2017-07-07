@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb76a0d9bee6004c91347f23d79fa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShapeSprite: {fileID: 21300000, guid: e7a15bb1dae0bb04bbb199357c82a782, type: 3}
+  ShapeSprite: {fileID: 21300000, guid: e86fcd57ae95c1b45a9231f89518f199, type: 3}
   Speed: 1
   AutomaticMaxSize: 1
   MaxSize: 4

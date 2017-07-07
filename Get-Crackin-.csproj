@@ -90,9 +90,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Common\Attributes\ReadOnlyCustomAttribute.cs" />
+    <Compile Include="Assets\Scripts\Common\Drawers\ReadOnlyDrawer.cs" />
+    <Compile Include="Assets\Scripts\Common\Drawers\SpritePropertyDrawer.cs" />
     <Compile Include="Assets\Scripts\Common\UI\Effects\Ripple\Ripple.cs" />
     <Compile Include="Assets\Scripts\Common\UI\Effects\Ripple\RippleTimer.cs" />
     <Compile Include="Assets\Scripts\Common\UI\Effects\Ripple\UIRipple.cs" />
+    <Compile Include="Assets\Scripts\Common\UI\ImageAspect.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIEvents.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIObserver.cs" />
   </ItemGroup>
