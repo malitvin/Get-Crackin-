@@ -3,7 +3,9 @@ using UnityEngine;
 
 namespace Common.UI.Effects
 {
-
+    /// <summary>
+    /// Used a simple rotate by speed for an euler axis
+    /// </summary>
     public class CasualRotate : MonoBehaviour
     {
         
