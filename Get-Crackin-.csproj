@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Common\Drawers\ReadOnlyDrawer.cs" />
     <Compile Include="Assets\Scripts\Common\Drawers\SpritePropertyDrawer.cs" />
     <Compile Include="Assets\Scripts\Common\JSON\JSONHelpers.cs" />
+    <Compile Include="Assets\Scripts\Common\UI\Effects\CasualRotate.cs" />
     <Compile Include="Assets\Scripts\Common\UI\Effects\Ripple\Ripple.cs" />
     <Compile Include="Assets\Scripts\Common\UI\Effects\Ripple\RippleTimer.cs" />
     <Compile Include="Assets\Scripts\Common\UI\Effects\Ripple\UIRipple.cs" />
