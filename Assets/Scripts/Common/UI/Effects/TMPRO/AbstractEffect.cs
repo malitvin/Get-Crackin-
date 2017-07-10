@@ -26,32 +26,50 @@ namespace Common.UI.Effects.TMPRO
         [Space(10)]
         public float value;
 
+        #region Unity Methods
         private void Awake()
         {
-            Glow(value);
-           // TextMeshUI.out
+            Init();
+            StartEffects();
         }
-
 
         private void Update()
         {
-            
+
+        }
+        #endregion
+
+        private void Init()
+        {
+            TextMeshUI.fontSharedMaterial.SetFloat("_GlowOffset", 0.6f);
         }
 
+        private void StartEffects()
+        {
+            switch (type)
+            {
+                case EffectType.Glow:
+                    Glow(value);
+                    break;
+            }
+        }
 
-
+        #region ITween Methods
         private void Glow(float value)
         {
             iTween.ValueTo(gameObject, iTween.Hash(
                   "from", TextMeshUI.fontSharedMaterial.GetFloat("_GlowOffset"),
                   "to", value,
-                  "time",speed,
+                  "time", speed,
                   "easetype", easeType,
-                  "looptype",iTween.LoopType.pingPong,
+                  "looptype", iTween.LoopType.pingPong,
                   "oncomplete", (Action<object>)(newValue => { }),
                   "oncompletetarget", gameObject,
                   "onUpdate", (Action<object>)(newValue => { TextMeshUI.fontSharedMaterial.SetFloat("_GlowOffset", (float)newValue); })
               ));
         }
+        #endregion
+
+
     }
 }

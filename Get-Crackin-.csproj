@@ -102,6 +102,11 @@
     <Compile Include="Assets\Scripts\UI\Framework\AbstractUI.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIEvents.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIObserver.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\MainMenuPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\MainMenuStateController.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\States\ExitState.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\States\IMainMenuState.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\States\MainState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
