@@ -57,7 +57,6 @@ namespace Common.JSON
             wrapper.Items = elements;
             
             string json = JsonUtility.ToJson(wrapper,true);
-            Debug.Log(json);
             File.WriteAllText(fileLocation, json);
         }
 

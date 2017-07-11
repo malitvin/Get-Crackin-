@@ -117,6 +117,16 @@ namespace UI.Framework
                    "onUpdate", (Action<object>)(newValue => { Rect.sizeDelta = (Vector2)newValue; })
                ));
         }
+        public void ScaleTo(float scale, float time = 0, iTween.EaseType easeType = iTween.EaseType.linear, float delay = 0)
+        {
+            iTween.ScaleTo(gameObject, iTween.Hash(
+                               "scale",new Vector3(scale,scale,scale),
+                               "time", time,
+                               "easetype", easeType,
+                               "oncomplete", (Action<object>)(newValue => { }),
+                               "oncompletetarget", gameObject)
+                               );
+        }
 
         protected void MoveTo(Vector3 position, float duration, iTween.EaseType easeType = iTween.EaseType.linear, bool isLocal = true)
         {

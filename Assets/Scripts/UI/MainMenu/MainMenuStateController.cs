@@ -3,7 +3,9 @@ using UnityEngine;
 
 
 //Game
+using UI.MainMenu.Panels;
 using UI.MainMenu.States;
+
 
 //C#
 using System.Collections.Generic;
@@ -12,16 +14,50 @@ namespace UI.MainMenu
 {
     public class MainMenuStateController : MonoBehaviour
     {
+        #region Publics
+        public PanelsBlueprint mainMenuBlueprint;
+
+        [Space(10)]
+        [Range(0.25f,3)]
+        public float mainPanelFadeTime;
+        [Range(0.25f, 3)]
+        public float panelFadeTime;
+        [Range(0.25f, 3)]
+        public float panelGrowSpeed;
+        [Range(0.25f, 3)]
+        public float panelShrinkSpeed;
+
+        [Space(10)]
+
+        public iTween.EaseType panelGrowEaseType;
+        public iTween.EaseType panelShrinkEaseType;
+        #endregion
+
+        #region State Info
         public enum MainMenuState { Main, Exit }
 
         private Dictionary<MainMenuState, IMainMenuState> StateLookup;
 
         private IMainMenuState currentState;
 
+        #endregion
+
+        #region Components
+        private Canvas mainCanvas;
+        public Canvas _MainCanvas
+        {
+            get { return mainCanvas ?? (mainCanvas = FindObjectOfType<Canvas>()); }
+        }
+        #endregion
+
         #region Unity Methods
         private void Awake()
         {
             ChangeState(MainMenuState.Main);
+        }
+        private void Update()
+        {
+            if (currentState != null) currentState.Update();
         }
         #endregion
 

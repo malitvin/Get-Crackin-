@@ -21,7 +21,7 @@ namespace Database
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.X)) AddScore("Maxim Litvinov", Random.Range(0, 100));
+       
         }
         #endregion
 
