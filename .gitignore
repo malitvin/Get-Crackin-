@@ -30,6 +30,7 @@ obj/
 ehthumbs.db
 Thumbs.db
 *.opendb
+*.DB
 
 # ============ #
 # Unwanted assets 
