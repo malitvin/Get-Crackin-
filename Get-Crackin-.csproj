@@ -104,16 +104,27 @@
     <Compile Include="Assets\Scripts\Database\HighScore.cs" />
     <Compile Include="Assets\Scripts\Database\HighScoreController.cs" />
     <Compile Include="Assets\Scripts\Database\HighScoresCalculator.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\States\DisplayState.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\States\GameOverState.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\States\GameplayStateMachine.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\States\IGameState.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\States\InputState.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\States\IntroState.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\States\ReplayState.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\States\ReviewState.cs" />
     <Compile Include="Assets\Scripts\UI\Effects\NumberRipple.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\AbstractUI.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIEvents.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIObserver.cs" />
-    <Compile Include="Assets\Scripts\UI\MainMenu\MainMenuStateController.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\Events\MainMenuObserver.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\Panels\MainMenuPanel.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\Panels\PanelsBlueprint.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\States\ExitState.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\States\IMainMenuState.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\States\MainMenuStateController.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\States\MainState.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\Widgets\MainMenuWidget.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\Widgets\NavigationButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />

@@ -4,13 +4,12 @@ using UnityEngine;
 
 //Game
 using UI.MainMenu.Panels;
-using UI.MainMenu.States;
-
+using UI.MainMenu.Events;
 
 //C#
 using System.Collections.Generic;
 
-namespace UI.MainMenu
+namespace UI.MainMenu.States
 {
     public class MainMenuStateController : MonoBehaviour
     {
@@ -47,6 +46,12 @@ namespace UI.MainMenu
         public Canvas _MainCanvas
         {
             get { return mainCanvas ?? (mainCanvas = FindObjectOfType<Canvas>()); }
+        }
+
+        private MainMenuObserver mainMenuObserver;
+        public MainMenuObserver _MainMenuObserver
+        {
+            get { return mainMenuObserver ?? (mainMenuObserver = FindObjectOfType<MainMenuObserver>()); }
         }
         #endregion
 

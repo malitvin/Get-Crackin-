@@ -10,7 +10,7 @@ namespace UI.Framework
     {
         public enum Type
         { 
-            Test
+            MainMenuNavigation
         }
     }
 }

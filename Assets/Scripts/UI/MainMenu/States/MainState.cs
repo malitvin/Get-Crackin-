@@ -5,6 +5,7 @@ using UnityEngine;
 using UI.MainMenu.Panels;
 
 //C#
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -21,23 +22,40 @@ namespace UI.MainMenu.States
         }
         #endregion
 
+        #region Panel Type Lookup
         public enum PanelType { Main, Play, HighScores, Credits, HowToPlay }
-        
 
         private Dictionary<PanelType, MainMenuPanel> PanelLookup;
 
+        /// <summary>
+        /// For Performance to avoid boxing
+        /// </summary>
+        public struct MyEnumComparer : IEqualityComparer<PanelType>
+        {
+            public bool Equals(PanelType x, PanelType y)
+            {
+                return x == y;
+            }
+
+            public int GetHashCode(PanelType obj)
+            {
+                return (int)obj;
+            }
+        }
+
         public PanelType currentPanelType = PanelType.Main;
+        #endregion
 
         #region Unity Methods
         public void Begin()
         {
+            StartListenForEvents();
             GeneratePanels();
         }
 
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.X)) controller.StartCoroutine(Transition(PanelType.Play));
-            if (Input.GetKeyDown(KeyCode.Z)) controller.StartCoroutine(Transition(PanelType.Main));
+
         }
 
         public void End()
@@ -46,22 +64,46 @@ namespace UI.MainMenu.States
         }
         #endregion
 
-
         #region UI Methods
+        private void StartListenForEvents()
+        {
+            Action<string> transitionListen = new Action<string>(TransitionalListen);
+            controller._MainMenuObserver.StartListening(Framework.UIEvents.Type.MainMenuNavigation, transitionListen);
+
+        }
+
+        /// <summary>
+        /// Generate and store out panel prefabs
+        /// </summary>
         private void GeneratePanels()
         {
             PanelLookup = new Dictionary<PanelType, MainMenuPanel>();
             PanelLookup.Add(PanelType.Main, controller._MainCanvas.GetComponentInChildren<MainMenuPanel>()); //add current main menu panel
             int panelCount = controller.mainMenuBlueprint.panels.Length;
-            
+
             for (int i = 0; i < panelCount; i++)
             {
-                MainMenuPanel panel = Object.Instantiate(controller.mainMenuBlueprint.panels[i].prefab, controller._MainCanvas.transform) as MainMenuPanel;
+                MainMenuPanel panel = UnityEngine.Object.Instantiate(controller.mainMenuBlueprint.panels[i].prefab, controller._MainCanvas.transform) as MainMenuPanel;
                 panel.MakeVisible(false);
                 PanelLookup.Add(controller.mainMenuBlueprint.panels[i].key, panel);
             }
         }
-        public IEnumerator Transition(PanelType newPanel)
+
+        /// <summary>
+        /// Listen for Transition events throughout the main menu
+        /// </summary>
+        /// <param name="s"></param>
+        public void TransitionalListen(string s)
+        {
+            controller.StartCoroutine(Transition((PanelType)(Enum.Parse(typeof(PanelType), s))));
+        }
+
+        /// <summary>
+        /// The Main coroutine that controls animation throughout the main menu of the lookup of panels
+        /// </summary>
+        /// <param name="newPanel"></param>
+        /// <returns></returns>
+        private IEnumerator Transition(PanelType newPanel)
         {
             //disable interaction on current panel
             PanelLookup[currentPanelType].EnableInteraction(false);
@@ -79,7 +121,7 @@ namespace UI.MainMenu.States
 
             currentPanelType = newPanel;
 
-            if(currentPanelType == PanelType.Main)
+            if (currentPanelType == PanelType.Main)
             {
                 PanelLookup[currentPanelType].FadeTo(1, controller.mainPanelFadeTime);
                 yield return new WaitForSeconds(controller.mainPanelFadeTime);
