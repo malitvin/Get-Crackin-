@@ -60,15 +60,23 @@ namespace UI.MainMenu.States
 
         public void End()
         {
-
+            //Remove the current panel
+            PanelLookup[currentPanelType].EnableInteraction(false);
+            PanelLookup[currentPanelType].BringOut(controller.panelShrinkSpeed, controller.panelShrinkEaseType, controller.panelFadeTime);
         }
         #endregion
 
         #region UI Methods
         private void StartListenForEvents()
         {
+            //listen for navigation
             Action<string> transitionListen = new Action<string>(TransitionalListen);
             controller._MainMenuObserver.StartListening(Framework.UIEvents.Type.MainMenuNavigation, transitionListen);
+
+            //listen for start playing game
+            Action<string> listenStart = new Action<string>(ToExitState);
+            controller._MainMenuObserver.StartListening(Framework.UIEvents.Type.PlayGame, listenStart);
+
 
         }
 
@@ -135,6 +143,11 @@ namespace UI.MainMenu.States
             //Enable Interaction on final panel
             PanelLookup[currentPanelType].EnableInteraction(true);
 
+        }
+
+        public void ToExitState(string message="")
+        {
+            controller.ChangeState(MainMenuStateController.MainMenuState.Exit);
         }
         #endregion
     }

@@ -116,6 +116,7 @@
     <Compile Include="Assets\Scripts\UI\MainMenu\Events\MainMenuObserver.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\Panels\MainMenuPanel.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\Panels\PanelsBlueprint.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\Panels\Play Panel\PlayGameButton.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\States\ExitState.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\States\IMainMenuState.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\States\MainMenuStateController.cs" />

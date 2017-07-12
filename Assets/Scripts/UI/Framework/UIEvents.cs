@@ -10,7 +10,8 @@ namespace UI.Framework
     {
         public enum Type
         { 
-            MainMenuNavigation
+            MainMenuNavigation,
+            PlayGame
         }
     }
 }
