@@ -19,7 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224838992607706932}
+  - component: {fileID: 114908945537222930}
   - component: {fileID: 114310387328702504}
+  - component: {fileID: 225428565835443718}
   m_Layer: 5
   m_Name: Moderate
   m_TagString: Untagged
@@ -224,7 +226,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224548171472210776}
+  - component: {fileID: 114196498038857294}
   - component: {fileID: 114493189210489314}
+  - component: {fileID: 225475077564234150}
   m_Layer: 5
   m_Name: Easy
   m_TagString: Untagged
@@ -350,7 +354,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224883627425331934}
+  - component: {fileID: 114644681207860708}
   - component: {fileID: 114154508451451160}
+  - component: {fileID: 225368241209684052}
   m_Layer: 5
   m_Name: Insane
   m_TagString: Untagged
@@ -799,6 +805,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114196498038857294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592095730357618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca5ea4f7872e60644b675d3cc92ae659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultySetting: 0
 --- !u!114 &114209356476718186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1395,6 +1413,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114644681207860708
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1981275800355818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca5ea4f7872e60644b675d3cc92ae659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultySetting: 2
 --- !u!114 &114671828561210414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1594,6 +1624,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114908945537222930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1049506432510626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca5ea4f7872e60644b675d3cc92ae659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultySetting: 1
 --- !u!114 &114926266539184044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2256,6 +2298,39 @@ CanvasGroup:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1811604191723758}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!225 &225368241209684052
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1981275800355818}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!225 &225428565835443718
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1049506432510626}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!225 &225475077564234150
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592095730357618}
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1

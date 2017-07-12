@@ -37,6 +37,22 @@ namespace UI.MainMenu.States
 
         private Dictionary<MainMenuState, IMainMenuState> StateLookup;
 
+        /// <summary>
+        /// For Performance to avoid boxing
+        /// </summary>
+        public struct MyEnumComparer : IEqualityComparer<MainMenuState>
+        {
+            public bool Equals(MainMenuState x, MainMenuState y)
+            {
+                return x == y;
+            }
+
+            public int GetHashCode(MainMenuState obj)
+            {
+                return (int)obj;
+            }
+        }
+
         private IMainMenuState currentState;
 
         #endregion

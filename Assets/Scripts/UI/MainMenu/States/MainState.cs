@@ -2,6 +2,7 @@
 using UnityEngine;
 
 //Game
+using Managers.GameSettings;
 using UI.MainMenu.Panels;
 
 //C#
@@ -11,6 +12,9 @@ using System.Collections.Generic;
 
 namespace UI.MainMenu.States
 {
+    /// <summary>
+    /// The Main state of the main menu, this could be broken down by panels but with such a simple game I didnt want to
+    /// </summary>
     public class MainState : IMainMenuState
     {
 
@@ -46,6 +50,17 @@ namespace UI.MainMenu.States
         public PanelType currentPanelType = PanelType.Main;
         #endregion
 
+        #region Events
+        //listen for navigation
+        Action<string> transitionListen;
+
+        //listen for difficulty change
+        Action<string> changeDifficulty;
+
+        //listen for start playing game
+        Action<string> listenStart;
+        #endregion
+
         #region Unity Methods
         public void Begin()
         {
@@ -63,22 +78,14 @@ namespace UI.MainMenu.States
             //Remove the current panel
             PanelLookup[currentPanelType].EnableInteraction(false);
             PanelLookup[currentPanelType].BringOut(controller.panelShrinkSpeed, controller.panelShrinkEaseType, controller.panelFadeTime);
+
+            //stop listening for events
+            StopListenForEvents();
         }
         #endregion
 
-        #region UI Methods
-        private void StartListenForEvents()
-        {
-            //listen for navigation
-            Action<string> transitionListen = new Action<string>(TransitionalListen);
-            controller._MainMenuObserver.StartListening(Framework.UIEvents.Type.MainMenuNavigation, transitionListen);
+        #region UI MAIN Methods
 
-            //listen for start playing game
-            Action<string> listenStart = new Action<string>(ToExitState);
-            controller._MainMenuObserver.StartListening(Framework.UIEvents.Type.PlayGame, listenStart);
-
-
-        }
 
         /// <summary>
         /// Generate and store out panel prefabs
@@ -95,15 +102,6 @@ namespace UI.MainMenu.States
                 panel.MakeVisible(false);
                 PanelLookup.Add(controller.mainMenuBlueprint.panels[i].key, panel);
             }
-        }
-
-        /// <summary>
-        /// Listen for Transition events throughout the main menu
-        /// </summary>
-        /// <param name="s"></param>
-        public void TransitionalListen(string s)
-        {
-            controller.StartCoroutine(Transition((PanelType)(Enum.Parse(typeof(PanelType), s))));
         }
 
         /// <summary>
@@ -145,9 +143,54 @@ namespace UI.MainMenu.States
 
         }
 
-        public void ToExitState(string message="")
+        public void ToExitState(string message = "")
         {
             controller.ChangeState(MainMenuStateController.MainMenuState.Exit);
+        }
+        #endregion
+
+        #region UI Observe/Listen Methods
+
+        private void StartListenForEvents()
+        {
+            //listen for navigation
+            transitionListen = new Action<string>(TransitionalListen);
+            controller._MainMenuObserver.StartListening(Framework.UIEvents.Type.MainMenuNavigation, transitionListen);
+
+            //listen for difficulty change
+            changeDifficulty = new Action<string>(ChangeDifficultyListen);
+            controller._MainMenuObserver.StartListening(Framework.UIEvents.Type.UpdateDifficulty, changeDifficulty);
+
+            //listen for start playing game
+            listenStart = new Action<string>(ToExitState);
+            controller._MainMenuObserver.StartListening(Framework.UIEvents.Type.PlayGame, listenStart);
+
+
+        }
+
+        private void StopListenForEvents()
+        {
+            controller._MainMenuObserver.StopListening(Framework.UIEvents.Type.MainMenuNavigation, transitionListen);
+            controller._MainMenuObserver.StopListening(Framework.UIEvents.Type.UpdateDifficulty, changeDifficulty);
+            controller._MainMenuObserver.StopListening(Framework.UIEvents.Type.PlayGame, listenStart);
+        }
+
+        /// <summary>
+        /// Listen for Transition events throughout the main menu
+        /// </summary>
+        /// <param name="s"></param>
+        public void TransitionalListen(string s)
+        {
+            controller.StartCoroutine(Transition((PanelType)(Enum.Parse(typeof(PanelType), s))));
+        }
+
+        /// <summary>
+        /// Listen for change of difficulty
+        /// </summary>
+        /// <param name="s"></param>
+        public void ChangeDifficultyListen(string s)
+        {
+            GameSettings.SetGameDifficulty((GameSettings.Difficulty)Enum.Parse(typeof(GameSettings.Difficulty),s));
         }
         #endregion
     }

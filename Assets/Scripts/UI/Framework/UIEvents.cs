@@ -11,7 +11,8 @@ namespace UI.Framework
         public enum Type
         { 
             MainMenuNavigation,
-            PlayGame
+            PlayGame,
+            UpdateDifficulty
         }
     }
 }

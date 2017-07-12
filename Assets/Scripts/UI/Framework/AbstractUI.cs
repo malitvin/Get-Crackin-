@@ -46,6 +46,12 @@ namespace UI.Framework
             get { return b ?? (b = GetComponent<Button>()); }
         }
 
+        private Toggle t;
+        protected Toggle _Toggle
+        {
+            get { return t ?? (t = GetComponent<Toggle>()); }
+        }
+
         private RawImage rawImage;
         protected RawImage _RawImage
         {
@@ -57,7 +63,8 @@ namespace UI.Framework
         #region Unity Functions
         protected virtual void Awake()
         {
-            if (B != null) B.onClick.AddListener(() => UI_OnSelected());
+            if (B != null) B.onClick.AddListener(() => Button_OnSelected());
+            if (_Toggle != null) _Toggle.onValueChanged.AddListener((on) => { Toggle_OnValueChanged(on); });
         }
         #endregion
 
@@ -156,7 +163,16 @@ namespace UI.Framework
         /// <summary>
         /// This has potential to be a button
         /// </summary>
-        protected virtual void UI_OnSelected()
+        protected virtual void Button_OnSelected()
+        {
+
+        }
+
+        /// <summary>
+        /// Potential for a toggle
+        /// </summary>
+        /// <param name="isOn"></param>
+        protected virtual void Toggle_OnValueChanged(bool isOn)
         {
 
         }

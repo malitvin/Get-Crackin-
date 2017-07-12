@@ -15,9 +15,9 @@ namespace UI.MainMenu.Widgets
         [Tooltip("When you click this button where does it take you")]
         public MainState.PanelType destination;
 
-        protected override void UI_OnSelected()
+        protected override void Button_OnSelected()
         {
-            base.UI_OnSelected();
+            base.Button_OnSelected();
             TriggerEvent(UIEvents.Type.MainMenuNavigation,destination.ToString());
         }
 

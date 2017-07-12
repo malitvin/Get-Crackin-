@@ -6,7 +6,7 @@ using UI.MainMenu.States;
 
 namespace UI.MainMenu.Panels
 {
-    [CreateAssetMenu(menuName = "Main Menu Blueprint",fileName ="UI")]
+    [CreateAssetMenu(menuName = "UI/Main Menu Blueprint",fileName ="UI")]
     public class PanelsBlueprint : ScriptableObject
     {
         [System.Serializable]

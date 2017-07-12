@@ -12,9 +12,9 @@ namespace UI.MainMenu.Panels.PlayPanel
     public class PlayGameButton : MainMenuWidget
     {
 
-        protected override void UI_OnSelected()
+        protected override void Button_OnSelected()
         {
-            base.UI_OnSelected();
+            base.Button_OnSelected();
             EnableInteraction(false); //disable play button by default
             TriggerEvent(Framework.UIEvents.Type.PlayGame); // Trigger Play Game Event
         }
