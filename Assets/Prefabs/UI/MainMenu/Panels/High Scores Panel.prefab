@@ -56,6 +56,8 @@ GameObject:
   - component: {fileID: 114893970589408038}
   - component: {fileID: 222515235352463710}
   - component: {fileID: 114750801536421228}
+  - component: {fileID: 225662753091391712}
+  - component: {fileID: 114522073609229218}
   m_Layer: 5
   m_Name: Exit Button
   m_TagString: Untagged
@@ -63,6 +65,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114522073609229218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580004470677302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9dce43e731c8442bebb6dd69df60c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: 0
 --- !u!114 &114750801536421228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,6 +251,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -400, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225662753091391712
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580004470677302}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!225 &225697285998227896
 CanvasGroup:
   m_ObjectHideFlags: 1

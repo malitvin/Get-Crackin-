@@ -56,6 +56,8 @@ GameObject:
   - component: {fileID: 114858740559734340}
   - component: {fileID: 222998682505063990}
   - component: {fileID: 114812679955024706}
+  - component: {fileID: 225054688573462274}
+  - component: {fileID: 114719360255479976}
   m_Layer: 5
   m_Name: Exit Button
   m_TagString: Untagged
@@ -101,6 +103,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22453a19620b75943852d15d20039312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114719360255479976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816319240203394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9dce43e731c8442bebb6dd69df60c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: 0
 --- !u!114 &114812679955024706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,6 +251,17 @@ RectTransform:
   m_AnchoredPosition: {x: 25, y: 25}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
+--- !u!225 &225054688573462274
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816319240203394}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!225 &225491615617013300
 CanvasGroup:
   m_ObjectHideFlags: 1
