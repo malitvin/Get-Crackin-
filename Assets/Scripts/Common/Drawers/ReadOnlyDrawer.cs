@@ -4,7 +4,9 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace GameDevelopment.Common
+using Common.Attributes;
+
+namespace Common.Drawers
 {
     [CustomPropertyDrawer(typeof(ReadOnlyCustomAttribute))]
     public class ReadOnlyDrawer : PropertyDrawer

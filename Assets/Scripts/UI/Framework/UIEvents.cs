@@ -10,9 +10,17 @@ namespace UI.Framework
     {
         public enum Type
         { 
+            /// <summary>
+            /// MAIN MENU
+            /// </summary>
             MainMenuNavigation,
             PlayGame,
-            UpdateDifficulty
+            UpdateDifficulty,
+
+            /// <summary>
+            /// GAMEPLAY
+            /// </summary>
+            InitProgressWidget
         }
     }
 }

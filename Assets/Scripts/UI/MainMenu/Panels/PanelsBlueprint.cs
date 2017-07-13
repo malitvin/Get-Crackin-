@@ -2,6 +2,7 @@
 using UnityEngine;
 
 //Game
+using Common.Attributes;
 using UI.MainMenu.States;
 
 namespace UI.MainMenu.Panels
@@ -14,6 +15,8 @@ namespace UI.MainMenu.Panels
         {
             public string name;
             public MainState.PanelType key;
+
+            [PrefabDropdown("UI/MainMenu/Panels")]
             public MainMenuPanel prefab;
         }
 

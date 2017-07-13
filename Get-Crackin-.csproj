@@ -90,9 +90,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Common\Attributes\PrefabDropdownAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Attributes\ReadOnlyCustomAttribute.cs" />
+    <Compile Include="Assets\Scripts\Common\Drawers\PrefabDropdownDrawer.cs" />
     <Compile Include="Assets\Scripts\Common\Drawers\ReadOnlyDrawer.cs" />
     <Compile Include="Assets\Scripts\Common\Drawers\SpritePropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\Common\Extensions\ParseExtensions.cs" />
     <Compile Include="Assets\Scripts\Common\iTween.cs" />
     <Compile Include="Assets\Scripts\Common\JSON\JSONHelpers.cs" />
     <Compile Include="Assets\Scripts\Common\Managers\Singleton.cs" />
@@ -116,11 +119,15 @@
     <Compile Include="Assets\Scripts\Gameplay\States\IntroState.cs" />
     <Compile Include="Assets\Scripts\Gameplay\States\ReplayState.cs" />
     <Compile Include="Assets\Scripts\Gameplay\States\ReviewState.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\States\SetUpState.cs" />
     <Compile Include="Assets\Scripts\Managers\GameSettings.cs" />
     <Compile Include="Assets\Scripts\UI\Effects\NumberRipple.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\AbstractUI.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIEvents.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIObserver.cs" />
+    <Compile Include="Assets\Scripts\UI\Gameplay\Events\HUD.cs" />
+    <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\GameplayWidget.cs" />
+    <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\ProgressWidget\ProgressWidget.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\Events\MainMenuObserver.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\Panels\MainMenuPanel.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\Panels\PanelsBlueprint.cs" />

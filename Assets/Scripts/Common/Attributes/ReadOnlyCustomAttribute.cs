@@ -1,7 +1,7 @@
 ﻿//Unity
 using UnityEngine;
 
-namespace GameDevelopment.Common
+namespace Common.Attributes
 {
     public class ReadOnlyCustomAttribute : PropertyAttribute { }
 }

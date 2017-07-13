@@ -4,8 +4,8 @@
 	{
 		_Blend("Blend", Range(0, 1)) = 0.5
 		_Color("Main Color", Color) = (1, 1, 1, 1)
-		_MainTex("Texture 1", 2D) = "white" {}
-	_Texture2("Texture 2", 2D) = ""
+		_MainTex("Color (RGB) Alpha (A)", 2D) = "white" {}
+	_Texture2("Color (RGB) Alpha (A)", 2D) = ""
 	}
 		SubShader
 	{
