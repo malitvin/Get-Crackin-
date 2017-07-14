@@ -66,6 +66,8 @@ namespace UI.MainMenu.States
         {
             StartListenForEvents();
             GeneratePanels();
+
+            controller.TriggerUIEvent(Framework.UIEvents.Type.SceneComeIn);
         }
 
         public void Update()

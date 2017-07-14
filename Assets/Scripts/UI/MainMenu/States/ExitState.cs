@@ -16,7 +16,7 @@ namespace UI.MainMenu.States
         #region Unity Methods
         public void Begin()
         {
-
+            controller.TriggerUIEvent(Framework.UIEvents.Type.SceneComeOut);
         }
 
         public void Update()

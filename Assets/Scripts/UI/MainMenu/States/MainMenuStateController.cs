@@ -1,8 +1,10 @@
 ﻿//Unity
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 //Game
+using UI.Framework;
 using UI.MainMenu.Panels;
 using UI.MainMenu.Events;
 
@@ -17,7 +19,7 @@ namespace UI.MainMenu.States
         public PanelsBlueprint mainMenuBlueprint;
 
         [Space(10)]
-        [Range(0.25f,3)]
+        [Range(0.25f, 3)]
         public float mainPanelFadeTime;
         [Range(0.25f, 3)]
         public float panelFadeTime;
@@ -101,6 +103,20 @@ namespace UI.MainMenu.States
 
             currentState = StateLookup[newState];
             currentState.Begin();
+        }
+        #endregion
+
+        #region UI Methods
+        public void TriggerUIEvent(UIEvents.Type type)
+        {
+            _MainMenuObserver.TriggerEvent(type);
+        }
+        #endregion
+
+        #region LOADING
+        public void LoadGAME()
+        {
+            SceneManager.LoadScene(1);
         }
         #endregion
     }

@@ -20,7 +20,13 @@ namespace UI.Framework
             /// <summary>
             /// GAMEPLAY
             /// </summary>
-            InitProgressWidget
+            InitProgressWidget,
+
+            /// <summary>
+            /// Other
+            /// </summary>
+            SceneComeOut,
+            SceneComeIn
         }
     }
 }
