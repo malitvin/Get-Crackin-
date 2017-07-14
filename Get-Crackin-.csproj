@@ -124,6 +124,7 @@
     <Compile Include="Assets\Scripts\Gameplay\States\SetUpState.cs" />
     <Compile Include="Assets\Scripts\Managers\GameSettings.cs" />
     <Compile Include="Assets\Scripts\UI\Effects\NumberRipple.cs" />
+    <Compile Include="Assets\Scripts\UI\Effects\SceneFader.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\AbstractUI.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIEvents.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIObserver.cs" />
