@@ -59,8 +59,6 @@ GameObject:
   - component: {fileID: 224689152664466562}
   - component: {fileID: 222407172720795384}
   - component: {fileID: 114196328265828586}
-  - component: {fileID: 114911081286857716}
-  - component: {fileID: 114216843503557846}
   m_Layer: 5
   m_Name: 'Header '
   m_TagString: Untagged
@@ -287,18 +285,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114216843503557846
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1210407067335496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
 --- !u!114 &114227211375150140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -518,25 +504,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 0
---- !u!114 &114911081286857716
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1210407067335496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb76a0d9bee6004c91347f23d79fa35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 1
-  AutomaticMaxSize: 1
-  MaxSize: 4
-  StartColor: {r: 1, g: 1, b: 1, a: 1}
-  EndColor: {r: 1, g: 1, b: 1, a: 1}
-  OnUIOnly: 1
-  RenderOnTop: 0
-  StartAtCenter: 0
 --- !u!114 &114997987213188768
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,6 +1,9 @@
 ﻿//Unity
 using UnityEngine;
 
+//Game
+using UI.Framework;
+
 namespace Gameplay.States
 {
     /// <summary>
@@ -21,7 +24,7 @@ namespace Gameplay.States
             //init generate combination
             stateMachine.GenerateCombination();
             //UI
-            stateMachine.TriggerHUDEvent(UI.Framework.UIEvents.Type.InitProgressWidget,stateMachine.GetGameBlueprint().combinationCount.ToString());
+            stateMachine.TriggerHUDEvent(UIEvents.Type.InitProgressWidget,stateMachine.GetGameBlueprint().combinationCount.ToString());
         }
 
         public void Update()

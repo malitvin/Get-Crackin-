@@ -119,11 +119,9 @@ namespace Gameplay.States
         /// </summary>
         public void GenerateCombination()
         {
-            if (combination == null) combination = new List<int>();
-            else
-            {
-                combination.Clear();
-            }
+            //apparently its faster to allocate a new list then call list.Clear();
+            //https://www.dotnetperls.com/list-clear
+            combination = new List<int>();
 
             //get combination count
             int count = GetGameBlueprint().combinationCount;
