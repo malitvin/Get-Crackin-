@@ -1,6 +1,9 @@
 ﻿//Unity
 using UnityEngine;
 
+//C#
+using System.Collections;
+
 namespace UI.MainMenu.States
 {
     public class ExitState : IMainMenuState
@@ -17,6 +20,8 @@ namespace UI.MainMenu.States
         public void Begin()
         {
             controller.TriggerUIEvent(Framework.UIEvents.Type.SceneComeOut);
+
+            controller.StartCoroutine(LoadGAME());
         }
 
         public void Update()
@@ -27,6 +32,14 @@ namespace UI.MainMenu.States
         public void End()
         {
 
+        }
+        #endregion
+
+        #region Loading Methods
+        public IEnumerator LoadGAME()
+        {
+            yield return new WaitForSeconds(2.0f);
+            controller.LoadGAME();
         }
         #endregion
 

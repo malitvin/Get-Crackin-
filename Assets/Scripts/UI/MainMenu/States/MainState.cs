@@ -4,6 +4,7 @@ using UnityEngine;
 //Game
 using Managers.GameSettings;
 using UI.MainMenu.Panels;
+using UI.Framework;
 
 //C#
 using System;
@@ -67,7 +68,7 @@ namespace UI.MainMenu.States
             StartListenForEvents();
             GeneratePanels();
 
-            controller.TriggerUIEvent(Framework.UIEvents.Type.SceneComeIn);
+            controller.TriggerUIEvent(UIEvents.Type.SceneComeIn);
         }
 
         public void Update()

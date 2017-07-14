@@ -507,11 +507,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Get Crackin'
   metroPackageVersion: 
-  metroCertificatePath: 
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DAFT GAMES
+  metroCertificateIssuer: DAFT GAMES
+  metroCertificateNotAfter: 80963cfdf91bd401
   metroApplicationDescription: Get Crackin'
   wsaImages: {}
   metroTileShortName: 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if UNITY_EDITOR
+using System.Collections.Generic;
 
 //UNity
 using UnityEngine;
@@ -126,3 +127,5 @@ namespace Common.Drawers
 
     }
 }
+
+#endif

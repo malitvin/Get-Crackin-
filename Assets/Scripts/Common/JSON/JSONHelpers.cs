@@ -36,9 +36,18 @@ namespace Common.JSON
             {
                 File.WriteAllText(fileLocation, "");
             }
-            using (StreamReader r = new StreamReader(fileLocation))
+
+            StreamReader stream;
+
+            #if NETFX_CORE
+                        stream= new WinRTLegacy.IO.StreamReader(fileLocation);
+            #else
+                        stream = new StreamReader(fileLocation);
+            #endif
+
+            using (stream)
             {
-                string json = r.ReadToEnd();
+                string json = stream.ReadToEnd();
                 Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(json);
                 return wrapper.Items.ToList();
             }
