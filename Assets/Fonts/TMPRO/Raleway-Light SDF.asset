@@ -11,19 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: -667331979, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: Raleway-Light SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 442614775
   material: {fileID: 21320744480791644}
-  materialHashCode: 0
+  materialHashCode: -50819428
   fontAssetType: 1
   m_fontInfo:
     Name: Raleway
     PointSize: 73
-    Scale: 0
+    Scale: 1
     CharacterCount: 97
     LineHeight: 85.6875
     Baseline: 0
     Ascender: 68.625
-    CapHeight: 0
+    CapHeight: 51.875
     Descender: -17.0625
     CenterLine: 0
     SuperscriptOffset: 68.625
@@ -33,7 +33,7 @@ MonoBehaviour:
     UnderlineThickness: 3.65
     strikethrough: 18.75
     strikethroughThickness: 3.65
-    TabWidth: 0
+    TabWidth: 187.5
     Padding: 5
     AtlasWidth: 512
     AtlasHeight: 512
@@ -42,10 +42,10 @@ MonoBehaviour:
   - id: 32
     x: 6
     y: 517
-    width: 0
-    height: 0
+    width: 18.75
+    height: 85.6875
     xOffset: 0
-    yOffset: 0
+    yOffset: 68.625
     xAdvance: 18.75
     scale: 1
   - id: 33
@@ -1025,9 +1025,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -1078,10 +1078,13 @@ Texture2D:
   m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
+    serializedVersion: 2
     m_FilterMode: 1
     m_Aniso: 1
     m_MipBias: 0
-    m_WrapMode: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
   m_LightmapFormat: 0
   m_ColorSpace: 0
   image data: 262144
