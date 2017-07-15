@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Audio\Background\BackgroundAudio.cs" />
     <Compile Include="Assets\Scripts\Audio\Framework\AudioFiles.cs" />
     <Compile Include="Assets\Scripts\Audio\Framework\BaseSoundController.cs" />
+    <Compile Include="Assets\Scripts\Cameras\GameplayCamera.cs" />
     <Compile Include="Assets\Scripts\Common\Attributes\PrefabDropdownAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Attributes\ReadOnlyCustomAttribute.cs" />
     <Compile Include="Assets\Scripts\Common\Drawers\PrefabDropdownDrawer.cs" />
