@@ -22,6 +22,8 @@ namespace UI.Framework
             /// </summary>
             InitProgressWidget,
             ToggleGamePanel,
+            PrepareCombinationNumber,
+            DisplayCombinationNumber
 
             /// <summary>
             /// Other

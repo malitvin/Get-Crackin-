@@ -14,13 +14,13 @@ MonoBehaviour:
   blueprints:
   - name: Easy Blueprint
     difficulty: 0
-    combinationCount: 14
+    combinationCount: 30
     timeBetweenNumbersDisplayed: 0.5
   - name: Moderate Blueprint
     difficulty: 1
-    combinationCount: 25
+    combinationCount: 40
     timeBetweenNumbersDisplayed: 0.4
   - name: Insane Blueprint
     difficulty: 2
-    combinationCount: 40
+    combinationCount: 50
     timeBetweenNumbersDisplayed: 0.3

@@ -30,5 +30,9 @@ namespace Gameplay.States
 
         }
         #endregion
+
+        #region Gameplay Methods
+
+        #endregion
     }
 }
