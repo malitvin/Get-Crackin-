@@ -32,7 +32,7 @@ namespace Gameplay.States
         #region Interface Methods
         public void Begin()
         {
-            stateMachine.TriggerHUDEvent(UI.Framework.UIEvents.Type.SceneComeIn);
+            stateMachine.TriggerHUDEvent(UIEvents.Type.SceneComeIn);
 
             stateMachine.StartCoroutine(IntroSequence());
         }
@@ -56,6 +56,9 @@ namespace Gameplay.States
             //bring in Game Panel
             yield return new WaitForSeconds(cameraInWaitTime);
             stateMachine.TriggerHUDEvent(UIEvents.Type.ToggleGamePanel, HUD.VisibleToggle.Display.ToString());
+            yield return new WaitForSeconds(cameraInWaitTime);
+            //Lets tsart the game
+            stateMachine.ChangeState(GameplayStateMachine.GameplayState.Display);
         }
 
     }
