@@ -24,6 +24,7 @@ namespace UI.Framework
             ToggleGamePanel,
             PrepareCombinationNumber,
             DisplayCombinationNumber,
+            RemoveCombination,
 
             /// <summary>
             /// Other

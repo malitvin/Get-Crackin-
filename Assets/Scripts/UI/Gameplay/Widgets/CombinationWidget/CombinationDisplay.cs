@@ -1,5 +1,6 @@
 ﻿//Unity
 using UnityEngine;
+using UnityEngine.UI;
 
 //Game
 using UI.Framework;
@@ -10,6 +11,7 @@ using Common.Pooler;
 
 //C#
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace UI.Gameplay.Widgets.CombinationWidget
@@ -34,6 +36,13 @@ namespace UI.Gameplay.Widgets.CombinationWidget
             get { return combinationPooler ?? (combinationPooler = GetComponent<GenericPooler>()); }
         }
 
+        //The container for fading in and out the numbers
+        private GameplayWidget container;
+        private GameplayWidget _Container
+        {
+            get { return container ?? (container = GetComponentInChildren<GridLayoutGroup>().GetComponent<GameplayWidget>()); }
+        }
+
         private int tempNumber;
         private Vector3 tempPos = new Vector3(0, 0, 0);
 
@@ -51,6 +60,9 @@ namespace UI.Gameplay.Widgets.CombinationWidget
 
             Action<string> displayCombinationNumber = new Action<string>(DisplayNumber);
             StartListenting(UIEvents.Type.DisplayCombinationNumber, displayCombinationNumber);
+
+            Action<string> removeCombination = new Action<string>(RemoveCombination);
+            StartListenting(UIEvents.Type.RemoveCombination, removeCombination);
         }
 
         private void PrepareNumber(string number)
@@ -64,6 +76,18 @@ namespace UI.Gameplay.Widgets.CombinationWidget
             CombinationOrb orb = _CombinationPooler.GetPooledObject(tempPos) as CombinationOrb;
             orb.transform.localPosition = Vector3.zero;
             orb.Init(TypeColors[spawnType],tempNumber);
+        }
+
+        private void RemoveCombination(string fadeTime)
+        {
+            float time = fadeTime.FloatParse();
+            StartCoroutine(FadeOutCombination(time));
+        }
+        private IEnumerator FadeOutCombination(float time)
+        {
+            _Container.FadeTo(0, time);
+            yield return new WaitForSeconds(time);
+            _CombinationPooler.ClearPool();
         }
     }
 }

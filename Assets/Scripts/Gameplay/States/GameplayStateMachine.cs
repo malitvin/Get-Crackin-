@@ -163,7 +163,7 @@ namespace Gameplay.States
         /// <summary>
         /// Increment the combination Count
         /// </summary>
-        public void InCrementCombinationCount()
+        public void IncrementCombinationCount()
         {
             currentCombinationCount++;
         }

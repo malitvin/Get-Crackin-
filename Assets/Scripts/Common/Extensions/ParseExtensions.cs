@@ -1,4 +1,5 @@
-﻿
+﻿//C#
+
 namespace Common.Extensions
 {
     public static class ParseExtensions
@@ -20,6 +21,11 @@ namespace Common.Extensions
             int result = 0;
             result = 10 * result + (value - 48);
             return result;
+        }
+
+        public static float FloatParse(this string s)
+        {
+            return float.Parse(s);
         }
 
     }

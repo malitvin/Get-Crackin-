@@ -24,6 +24,8 @@ namespace Gameplay.States
         #region Private
         private bool displayingNumbers = false;
         private float displayTimer = 0;
+
+        private float combinationFadeOutTime = 0.5f;
         #endregion
 
         #region Interface Methods
@@ -46,11 +48,12 @@ namespace Gameplay.States
                 //if the current combination count is equal to the round
                 if(stateMachine.GetCurrentCombinationCount() == stateMachine.GetRound())
                 {
-                    stateMachine.ChangeState(GameplayStateMachine.GameplayState.Input);
+                    displayingNumbers = false;
+                    stateMachine.StartCoroutine(FadeOutNumbers());
                 }
                 else
                 {
-                    stateMachine.InCrementCombinationCount();
+                    stateMachine.IncrementCombinationCount();
                 }
             }
         }
@@ -66,6 +69,18 @@ namespace Gameplay.States
         {
             yield return new WaitForSeconds(stateMachine.GetGameBlueprint().initialDisplayWait);
             displayingNumbers = true;
+        }
+
+        private IEnumerator FadeOutNumbers()
+        {
+            //wait a second to give the user time
+            yield return new WaitForSeconds(1);
+            //remove numbers on UI
+            stateMachine.TriggerHUDEvent(UIEvents.Type.RemoveCombination, combinationFadeOutTime.ToString());
+            //fade out combination
+            yield return new WaitForSeconds(combinationFadeOutTime);
+            //TO INPUT STATE
+            stateMachine.ChangeState(GameplayStateMachine.GameplayState.Input);
         }
         #endregion
     }

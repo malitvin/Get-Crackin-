@@ -69,7 +69,10 @@ namespace Common.Pooler
 
             public void ClearPool()
             {
-
+                foreach (T element in stack)
+                {
+                    Release(element);
+                }
             }
         }
 
@@ -82,6 +85,7 @@ namespace Common.Pooler
         private int startingAllocatedAmount = 1;
 
         private ObjectPool<PooledObject> objectPool;
+        private List<PooledObject> pooledObjects = new List<PooledObject>();
 
         private Vector3 spawnPosition;
 
@@ -125,6 +129,7 @@ namespace Common.Pooler
         {
             if (idealT == null) idealT = transform;
             PooledObject p = Instantiate(prefab, idealT,false) as PooledObject;
+            pooledObjects.Add(p);
             p.SetPooler(this);
             return p;
         }
@@ -143,6 +148,15 @@ namespace Common.Pooler
             if (o == null) return;
             o.Remove();
         }
+
+        public void ClearPool()
+        {
+            foreach(PooledObject o in pooledObjects)
+            {
+                OnRemove(o);
+            }
+        }
+
 
     }
 }
