@@ -16,7 +16,7 @@ namespace Gameplay.States
         #region Interface Methods
         public void Begin()
         {
-
+            stateMachine.TriggerHUDEvent(UI.Framework.UIEvents.Type.SceneComeIn);
         }
 
         public void Update()

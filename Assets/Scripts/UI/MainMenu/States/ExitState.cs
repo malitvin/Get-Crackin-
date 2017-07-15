@@ -4,6 +4,9 @@ using UnityEngine;
 //C#
 using System.Collections;
 
+//Game
+using Audio.Background;
+
 namespace UI.MainMenu.States
 {
     public class ExitState : IMainMenuState
@@ -16,10 +19,20 @@ namespace UI.MainMenu.States
         }
         #endregion
 
+        #region Components
+        private BackgroundAudio backgroundAudio;
+        private BackgroundAudio _BackgroundAudio
+        {
+            get { return backgroundAudio ?? (backgroundAudio = Object.FindObjectOfType<BackgroundAudio>()); }
+        }
+        #endregion
+
         #region Unity Methods
         public void Begin()
         {
             controller.TriggerUIEvent(Framework.UIEvents.Type.SceneComeOut);
+
+            _BackgroundAudio.FadeVolume(true);
 
             controller.StartCoroutine(LoadGAME());
         }

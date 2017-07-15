@@ -25,6 +25,8 @@ namespace Gameplay.States
             stateMachine.GenerateCombination();
             //UI
             stateMachine.TriggerHUDEvent(UIEvents.Type.InitProgressWidget,stateMachine.GetGameBlueprint().combinationCount.ToString());
+
+            stateMachine.ChangeState(GameplayStateMachine.GameplayState.Intro);
         }
 
         public void Update()

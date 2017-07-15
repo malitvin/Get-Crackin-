@@ -74,7 +74,7 @@ namespace UI.MainMenu.States
         #endregion
 
         #region Unity Methods
-        private void Awake()
+        private void Start()
         {
             ChangeState(MainMenuState.Main);
         }
