@@ -22,6 +22,8 @@ namespace Gameplay.Configuration
             public GameSettings.Difficulty difficulty;
             [Range(10, 50)]
             public int combinationCount;
+            [Range(0.25f, 2f)]
+            public float timeBetweenNumbersDisplayed;
         }
 
         private Dictionary<GameSettings.Difficulty, GameplayBlueprint> BlueprintLookup;
