@@ -58,6 +58,12 @@ namespace UI.Framework
             get { return rawImage ?? (rawImage = GetUIComponent(rawImage)); }
         }
 
+        private Image image;
+        public Image _Image
+        {
+            get { return image ?? (image = GetUIComponent(image)); }
+        }
+
         #endregion
 
         #region Unity Functions
@@ -190,6 +196,11 @@ namespace UI.Framework
             if (Object == null) Debug.LogError(typeof(T) + " is not attached to  " + gameObject.name);
             return Object;
 
+        }
+
+        public bool IsVIsible()
+        {
+            return (Grid.alpha > 0);
         }
         #endregion
 

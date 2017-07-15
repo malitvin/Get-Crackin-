@@ -131,6 +131,7 @@
     <Compile Include="Assets\Scripts\UI\Framework\AbstractUI.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIEvents.cs" />
     <Compile Include="Assets\Scripts\UI\Framework\UIObserver.cs" />
+    <Compile Include="Assets\Scripts\UI\Framework\UIWidget.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Events\HUD.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\GameplayWidget.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\ProgressWidget\ProgressOrb.cs" />
