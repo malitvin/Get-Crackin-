@@ -5,11 +5,17 @@ using UnityEngine;
 using System.Collections.Generic;
 
 //Game
+using Gameplay.Events;
+using Gameplay.Configuration;
+//UI
 using UI.Framework;
 using UI.Gameplay.Events;
+//Common
 using Common.Attributes;
+//Managers
+using Managers;
 using Managers.GameSettings;
-using Gameplay.Configuration;
+
 
 namespace Gameplay.States
 {
@@ -105,6 +111,11 @@ namespace Gameplay.States
         #endregion
 
         #region GAMEPLAY Methods
+        public void TriggerGameplayEvent(GameplayEvent.Type e,string message)
+        {
+            GAMEManager.Instance.TriggerGameplayEvent(e, message);
+        }
+
         /// <summary>
         /// Get our current game blueprint
         /// </summary>

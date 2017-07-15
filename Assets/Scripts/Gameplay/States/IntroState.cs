@@ -1,6 +1,14 @@
 ﻿//Unity
 using UnityEngine;
 
+
+//C#
+using System.Collections;
+
+//Game
+using Gameplay.Events;
+using Cameras;
+
 namespace Gameplay.States
 {
     /// <summary>
@@ -13,10 +21,16 @@ namespace Gameplay.States
         public IntroState(GameplayStateMachine stateMachine) { this.stateMachine = stateMachine; }
         #endregion
 
+        #region Privates
+        private const float cameraInWaitTime = 2;
+        #endregion
+
         #region Interface Methods
         public void Begin()
         {
             stateMachine.TriggerHUDEvent(UI.Framework.UIEvents.Type.SceneComeIn);
+
+            stateMachine.StartCoroutine(BringInCamera());
         }
 
         public void Update()
@@ -29,6 +43,12 @@ namespace Gameplay.States
 
         }
         #endregion
+
+        private IEnumerator BringInCamera()
+        {
+            yield return new WaitForSeconds(cameraInWaitTime);
+            stateMachine.TriggerGameplayEvent(GameplayEvent.Type.CameraChange, GameplayCamera.LocationKey.Main.ToString());
+        }
 
     }
 }
