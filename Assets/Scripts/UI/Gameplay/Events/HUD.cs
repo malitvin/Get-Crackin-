@@ -11,7 +11,7 @@ namespace UI.Gameplay.Events
     /// </summary>
     public class HUD : UIObserver
     {
-
+        public enum VisibleToggle { Display,Hide}
 
     }
 }

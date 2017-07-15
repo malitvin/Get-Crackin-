@@ -21,6 +21,7 @@ namespace UI.Framework
             /// GAMEPLAY
             /// </summary>
             InitProgressWidget,
+            ToggleGamePanel,
 
             /// <summary>
             /// Other

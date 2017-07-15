@@ -9,6 +9,10 @@ using System.Collections;
 using Gameplay.Events;
 using Cameras;
 
+//UI
+using UI.Framework;
+using UI.Gameplay.Events;
+
 namespace Gameplay.States
 {
     /// <summary>
@@ -30,7 +34,7 @@ namespace Gameplay.States
         {
             stateMachine.TriggerHUDEvent(UI.Framework.UIEvents.Type.SceneComeIn);
 
-            stateMachine.StartCoroutine(BringInCamera());
+            stateMachine.StartCoroutine(IntroSequence());
         }
 
         public void Update()
@@ -44,10 +48,14 @@ namespace Gameplay.States
         }
         #endregion
 
-        private IEnumerator BringInCamera()
+        private IEnumerator IntroSequence()
         {
             yield return new WaitForSeconds(cameraInWaitTime);
+            //bring in camera
             stateMachine.TriggerGameplayEvent(GameplayEvent.Type.CameraChange, GameplayCamera.LocationKey.Main.ToString());
+            //bring in Game Panel
+            yield return new WaitForSeconds(cameraInWaitTime);
+            stateMachine.TriggerHUDEvent(UIEvents.Type.ToggleGamePanel, HUD.VisibleToggle.Display.ToString());
         }
 
     }
