@@ -20,10 +20,13 @@ namespace Gameplay.Configuration
         {
             public string name;
             public GameSettings.Difficulty difficulty;
-            [Range(10, 50)]
+            [Range(10, 60)]
             public int combinationCount;
             [Range(0.25f, 2f)]
+            public float initialDisplayWait;
+            [Range(0.25f, 2f)]
             public float timeBetweenNumbersDisplayed;
+
         }
 
         private Dictionary<GameSettings.Difficulty, GameplayBlueprint> BlueprintLookup;

@@ -62,6 +62,7 @@ namespace UI.Gameplay.Widgets.CombinationWidget
         {
             Type spawnType = (Type)Enum.Parse(typeof(Type), type);
             CombinationOrb orb = _CombinationPooler.GetPooledObject(tempPos) as CombinationOrb;
+            orb.transform.localPosition = Vector3.zero;
             orb.Init(TypeColors[spawnType],tempNumber);
         }
     }

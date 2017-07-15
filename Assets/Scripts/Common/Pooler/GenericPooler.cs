@@ -124,7 +124,7 @@ namespace Common.Pooler
         private PooledObject OnNew()
         {
             if (idealT == null) idealT = transform;
-            PooledObject p = Instantiate(prefab, idealT) as PooledObject;
+            PooledObject p = Instantiate(prefab, idealT,false) as PooledObject;
             p.SetPooler(this);
             return p;
         }
