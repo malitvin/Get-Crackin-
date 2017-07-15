@@ -93,7 +93,7 @@ namespace Gameplay.States
         #endregion
 
         #region Unity Methods
-        private void Awake()
+        private void Start()
         {
             ChangeState(GameplayState.SetUp);
         }

@@ -1,24 +1,24 @@
 ﻿//Unity
 using UnityEngine;
+using UnityEngine.UI.Extensions;
 
 //Game
-using Common.UI;
 using UI.Framework;
 
 namespace UI.Gameplay.Widgets.ProgressWidget
 {
     public class ProgressOrb : AbstractUI
     {
-        private LineRenderer line;
-        private LineRenderer _Line
+        private UILineRenderer line;
+        private UILineRenderer _Line
         {
-            get { return line ?? (line = GetComponent<LineRenderer>()); }
+            get { return line ?? (line = GetComponentInChildren<UILineRenderer>()); }
         }
-
 
         public void SetConnection(Vector3 pos)
         {
-            _Line.SetPosition(1, pos);
+            _Line.Points[1] = pos;
+            _Line.enabled = false; _Line.enabled = true;
         }
         public Vector2 GetAnchoredPosition()
         {

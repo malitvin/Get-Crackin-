@@ -106,6 +106,10 @@
     <Compile Include="Assets\Scripts\Common\UI\Effects\Ripple\RippleTimer.cs" />
     <Compile Include="Assets\Scripts\Common\UI\Effects\Ripple\UIRipple.cs" />
     <Compile Include="Assets\Scripts\Common\UI\Effects\TMPRO\AbstractEffect.cs" />
+    <Compile Include="Assets\Scripts\Common\UI\Extensions\BezierPath.cs" />
+    <Compile Include="Assets\Scripts\Common\UI\Extensions\SetPropertyUtility.cs" />
+    <Compile Include="Assets\Scripts\Common\UI\Extensions\UILineRenderer.cs" />
+    <Compile Include="Assets\Scripts\Common\UI\Extensions\UIPrimitiveBase.cs" />
     <Compile Include="Assets\Scripts\Common\UI\ImageAspect.cs" />
     <Compile Include="Assets\Scripts\Common\UI\RectTransformExtensions.cs" />
     <Compile Include="Assets\Scripts\Database\HighScore.cs" />

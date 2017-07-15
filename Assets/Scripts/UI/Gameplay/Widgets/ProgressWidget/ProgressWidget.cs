@@ -65,6 +65,7 @@ namespace UI.Gameplay.Widgets.ProgressWidget
                 }
                 
             }
+
         }
 
 
