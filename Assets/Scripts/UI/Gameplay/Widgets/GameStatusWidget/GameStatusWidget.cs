@@ -2,6 +2,7 @@
 using UnityEngine;
 
 //Game
+using Common.Extensions;
 using UI.Framework;
 
 //C#
@@ -20,6 +21,12 @@ namespace UI.Gameplay.Widgets.GameStatusWidget
             get { return currentStateText ?? (currentStateText = GetComponentInChildren<CurrentStateText>()); }
         }
 
+        private NumberFeedback numberFeedback;
+        private NumberFeedback _NumberFeedback
+        {
+            get { return numberFeedback ?? (numberFeedback = GetComponentInChildren<NumberFeedback>()); }
+        }
+
         protected override void Awake()
         {
             base.Awake();
@@ -31,11 +38,20 @@ namespace UI.Gameplay.Widgets.GameStatusWidget
         {
             Action<string> updateDisplayText = new Action<string>(ChangeDisplayText);
             StartListenting(UIEvents.Type.ChangeGameStatusText, updateDisplayText);
+
+            Action<string> spawnAnimationNumber = new Action<string>(SpawnAnimationNumber);
+            StartListenting(UIEvents.Type.SpawnAnimNumber, spawnAnimationNumber);
         }
 
         private void ChangeDisplayText(string message)
         {
             _CurrentStateText.ChangeText(message);
+        }
+
+        private void SpawnAnimationNumber(string number)
+        {
+            int n = number.ParseIntFast();
+            _NumberFeedback.SpawnNumber(n);
         }
     }
 }

@@ -26,6 +26,7 @@ namespace UI.Framework
             DisplayCombinationNumber,
             RemoveCombination,
             ChangeGameStatusText,
+            SpawnAnimNumber,
 
             /// <summary>
             /// Other
