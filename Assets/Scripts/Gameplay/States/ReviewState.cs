@@ -14,6 +14,11 @@ namespace Gameplay.States
         public ReviewState(GameplayStateMachine stateMachine) { this.stateMachine = stateMachine; }
         #endregion
 
+        #region Privates
+        private bool reviewing = true;
+        private float reviewTimer = 0;
+        #endregion
+
         #region Interface Methods
         public void Begin()
         {
@@ -22,12 +27,19 @@ namespace Gameplay.States
 
         public void Update()
         {
+            if (!reviewing) return;
+            reviewTimer += Time.deltaTime;
+            if (reviewTimer > stateMachine.GetGameBlueprint().timeBetweenNumbersDisplayed)
+            {
+                reviewTimer = 0;
 
+            }
         }
 
         public void End()
         {
-
+            reviewing = true;
+            reviewTimer = 0;
         }
         #endregion
     }

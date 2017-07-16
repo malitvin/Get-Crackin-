@@ -11,7 +11,7 @@ namespace Audio
         /// <summary>
         /// Make Sure these enums match the audio files names
         /// </summary>
-        public enum GameplaySoundClip {UserInput}
+        public enum GameplaySoundClip {UserInput,DisplayInput}
         public enum UISoundClip {}
 
        

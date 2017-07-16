@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Collections;
 
 //Game
+using Audio;
 using UI.Framework;
 using UI.Gameplay.Widgets.CombinationWidget;
 
@@ -41,12 +42,14 @@ namespace Gameplay.States
             if (displayTimer > stateMachine.GetGameBlueprint().timeBetweenNumbersDisplayed)
             {
                 displayTimer = 0;
+                //Play sound
+                stateMachine.PlaySound(AudioFiles.GameplaySoundClip.DisplayInput);
                 //display number on screen
                 stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareCombinationNumber, stateMachine.GetCombinationNumber().ToString());
                 stateMachine.TriggerHUDEvent(UIEvents.Type.DisplayCombinationNumber, CombinationDisplay.Type.Normal.ToString());
 
                 //if the current combination count is equal to the round
-                if(stateMachine.GetCurrentCombinationCount() == stateMachine.GetRound())
+                if(stateMachine.GetCurrentCombinationCount()+1 == stateMachine.GetRound())
                 {
                     displayingNumbers = false;
                     stateMachine.StartCoroutine(FadeOutNumbers());
@@ -74,7 +77,7 @@ namespace Gameplay.States
         private IEnumerator FadeOutNumbers()
         {
             //wait a second to give the user time
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1.5f);
             //remove numbers on UI
             stateMachine.TriggerHUDEvent(UIEvents.Type.RemoveCombination, combinationFadeOutTime.ToString());
             //fade out combination

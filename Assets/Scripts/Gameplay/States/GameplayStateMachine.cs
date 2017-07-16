@@ -38,7 +38,8 @@ namespace Gameplay.States
 
         #region Private Variables
         private List<int> combination;
-        private int round;
+        private List<int> userInput;
+        private int round = 1;
         private int currentCombinationCount;
         #endregion
 
@@ -151,6 +152,16 @@ namespace Gameplay.States
             }
         }
 
+        public void AddToUserInput(int input)
+        {
+            if (userInput == null) userInput = new List<int>();
+            userInput.Add(input);
+        }
+
+        /// <summary>
+        /// Get the combination number by the current combination count
+        /// </summary>
+        /// <returns></returns>
         public int GetCombinationNumber()
         {
             return combination[GetCurrentCombinationCount()];
@@ -173,11 +184,18 @@ namespace Gameplay.States
             currentCombinationCount++;
         }
 
+        /// <summary>
+        /// Get the currentRound
+        /// </summary>
+        /// <returns></returns>
         public int GetRound()
         {
             return round;
         }
 
+        /// <summary>
+        /// Increment Round
+        /// </summary>
         public void IncrementRound()
         {
             round++;
