@@ -49,6 +49,8 @@ namespace Gameplay.States
                 //display number on screen
                 stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareCombinationNumber, stateMachine.GetCombinationNumber().ToString());
                 stateMachine.TriggerHUDEvent(UIEvents.Type.DisplayCombinationNumber, CombinationDisplay.Type.Normal.ToString());
+                //spawn anim number
+                stateMachine.TriggerHUDEvent(UIEvents.Type.SpawnAnimNumber, stateMachine.GetCombinationNumber().ToString());
 
                 //if the current combination count is equal to the round
                 if(stateMachine.GetCurrentCombinationCount()+1 == stateMachine.GetRound())

@@ -40,7 +40,12 @@ namespace Gameplay.States
                 reviewTimer = 0;
 
                 bool correctInput = stateMachine.AreEqualByIndex(currentReviewIndex);
+
                 stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareCombinationNumber, stateMachine.GetUserInputNumber(currentReviewIndex).ToString());
+
+                //spawn anim number
+                stateMachine.TriggerHUDEvent(UIEvents.Type.SpawnAnimNumber, stateMachine.GetUserInputNumber(currentReviewIndex).ToString());
+
 
                 //display combo number as incorrect or correct
                 stateMachine.TriggerHUDEvent(UIEvents.Type.DisplayCombinationNumber, correctInput

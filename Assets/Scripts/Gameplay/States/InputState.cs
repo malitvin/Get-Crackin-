@@ -51,6 +51,10 @@ namespace Gameplay.States
                 //display number on screen
                 stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareCombinationNumber, number.ToString());
                 stateMachine.TriggerHUDEvent(UIEvents.Type.DisplayCombinationNumber, CombinationDisplay.Type.Normal.ToString());
+
+                //spawn anim number
+                stateMachine.TriggerHUDEvent(UIEvents.Type.SpawnAnimNumber, number.ToString());
+
                 //add to state controller user input
                 stateMachine.AddToUserInput(number);
                 //increment number count

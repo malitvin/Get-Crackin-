@@ -35,7 +35,7 @@ namespace UI.Framework
         }
 
         private RectTransform rect;
-        protected RectTransform Rect
+        public RectTransform Rect
         {
             get { return rect ?? (rect = GetUIComponent(rect)); }
         }
@@ -117,14 +117,14 @@ namespace UI.Framework
                ));
         }
 
-        public void RectSizeTo(Vector2 size, float time = 0, iTween.EaseType easeType = iTween.EaseType.linear,float delay=0)
+        public void RectSizeTo(Vector2 size, float time = 0, iTween.EaseType easeType = iTween.EaseType.linear, float delay = 0)
         {
             iTween.ValueTo(gameObject, iTween.Hash(
                    "from", Rect.sizeDelta,
                    "to", size,
                    "time", time,
                    "easetype", easeType,
-                   "delay",delay,
+                   "delay", delay,
                    "oncomplete", (Action<object>)(newValue => { }),
                    "oncompletetarget", gameObject,
                    "onUpdate", (Action<object>)(newValue => { Rect.sizeDelta = (Vector2)newValue; })
@@ -133,7 +133,7 @@ namespace UI.Framework
         public void ScaleTo(float scale, float time = 0, iTween.EaseType easeType = iTween.EaseType.linear, float delay = 0)
         {
             iTween.ScaleTo(gameObject, iTween.Hash(
-                               "scale",new Vector3(scale,scale,scale),
+                               "scale", new Vector3(scale, scale, scale),
                                "time", time,
                                "easetype", easeType,
                                "oncomplete", (Action<object>)(newValue => { }),
@@ -204,5 +204,11 @@ namespace UI.Framework
         }
         #endregion
 
+        #region Setting
+        public void SetRectAnchoredPosition(Vector2 v)
+        {
+            Rect.anchoredPosition = v;
+        }
+        #endregion
     }
 }
