@@ -8,11 +8,16 @@ namespace Gameplay.GameInput
     /// </summary>
     public class NumberInput
     {
-        public struct HotKey
+        public class HotKey
         {
             public int number;
             public string standard;
             public string numberPad;
+            public HotKey(int number,string standard,string numberPad) {
+                this.number = number;
+                this.standard = standard;
+                this.numberPad = numberPad;
+            }
 
         }
 
@@ -23,12 +28,9 @@ namespace Gameplay.GameInput
         private void CreateHotKeys()
         {
             keys = new HotKey[9];
-            for(int i=0; i < 10; i++)
+            for(int i=0; i < 9; i++)
             {
-                HotKey key;
-                key.number = i;
-                key.standard = i.ToString();
-                key.numberPad = "[" + i.ToString() + "]";
+                HotKey key = new HotKey(i+1, (i+1).ToString(), "[" + (i+1).ToString() + "]");
                 keys[i] = key;
             }
         }

@@ -72,6 +72,8 @@ namespace UI.Gameplay.Widgets.CombinationWidget
 
         private void DisplayNumber(string type)
         {
+            if (!_Container.IsVIsible()) _Container.MakeVisible(true);
+
             Type spawnType = (Type)Enum.Parse(typeof(Type), type);
             CombinationOrb orb = _CombinationPooler.GetPooledObject(tempPos) as CombinationOrb;
             orb.transform.localPosition = Vector3.zero;

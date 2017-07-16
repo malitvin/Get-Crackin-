@@ -118,6 +118,11 @@ namespace Gameplay.States
             GAMEManager.Instance.TriggerGameplayEvent(e, message);
         }
 
+        public void PlaySound(Audio.AudioFiles.GameplaySoundClip clip)
+        {
+            GAMEManager.Instance.PlaySound(clip);
+        }
+
         /// <summary>
         /// Get our current game blueprint
         /// </summary>

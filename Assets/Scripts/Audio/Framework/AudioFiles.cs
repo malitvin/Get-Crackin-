@@ -11,8 +11,8 @@ namespace Audio
         /// <summary>
         /// Make Sure these enums match the audio files names
         /// </summary>
-        public enum GameplaySoundClip { PencilMark,Erase}
-        public enum UISoundClip {ToolSwitch,UIClick,Chain,KeyClick }
+        public enum GameplaySoundClip {UserInput}
+        public enum UISoundClip {}
 
        
         public class AudioBlueprint
