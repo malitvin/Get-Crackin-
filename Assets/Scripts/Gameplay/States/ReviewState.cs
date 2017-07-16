@@ -1,6 +1,11 @@
 ﻿//Unity
 using UnityEngine;
 
+//Game
+using Audio;
+using UI.Framework;
+using UI.Gameplay.Widgets.CombinationWidget;
+
 namespace Gameplay.States
 {
     /// <summary>
@@ -17,6 +22,7 @@ namespace Gameplay.States
         #region Privates
         private bool reviewing = true;
         private float reviewTimer = 0;
+        private int currentReviewIndex = 0;
         #endregion
 
         #region Interface Methods
@@ -33,6 +39,24 @@ namespace Gameplay.States
             {
                 reviewTimer = 0;
 
+                bool correctInput = stateMachine.AreEqualByIndex(currentReviewIndex);
+                stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareCombinationNumber, stateMachine.GetUserInputNumber(currentReviewIndex).ToString());
+
+                //display combo number as incorrect or correct
+                stateMachine.TriggerHUDEvent(UIEvents.Type.DisplayCombinationNumber, correctInput
+                    ? CombinationDisplay.Type.Correct.ToString()
+                    : CombinationDisplay.Type.InCorrect.ToString());
+                //play correct or incorrect sound
+                stateMachine.PlaySound(correctInput
+                    ? AudioFiles.GameplaySoundClip.Correct
+                    : AudioFiles.GameplaySoundClip.Incorrect);
+
+                if(currentReviewIndex == stateMachine.GetCombinationNumber())
+                {
+                    Debug.Log("DONE");
+                }
+
+
             }
         }
 
@@ -40,6 +64,7 @@ namespace Gameplay.States
         {
             reviewing = true;
             reviewTimer = 0;
+            currentReviewIndex = 0;
         }
         #endregion
     }

@@ -24,4 +24,16 @@ MonoBehaviour:
     pitch: 1
     group: {fileID: 243140937335932002, guid: bdbd314c2db38b04696123643a476736, type: 2}
     key: 1
+  - name: Correct Input
+    clip: {fileID: 8300000, guid: 054c99eb759223a41be7c46733aa3f50, type: 3}
+    volume: 1
+    pitch: 1
+    group: {fileID: 243140937335932002, guid: bdbd314c2db38b04696123643a476736, type: 2}
+    key: 2
+  - name: Incorrect Input
+    clip: {fileID: 8300000, guid: f5cb3f7226f87bc49b5aaec832de3fc5, type: 3}
+    volume: 1
+    pitch: 1
+    group: {fileID: 243140937335932002, guid: bdbd314c2db38b04696123643a476736, type: 2}
+    key: 3
   UISounds: []

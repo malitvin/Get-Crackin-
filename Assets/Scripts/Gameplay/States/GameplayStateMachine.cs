@@ -152,10 +152,24 @@ namespace Gameplay.States
             }
         }
 
+        /// <summary>
+        /// Add to user input list
+        /// </summary>
+        /// <param name="input"></param>
         public void AddToUserInput(int input)
         {
             if (userInput == null) userInput = new List<int>();
             userInput.Add(input);
+        }
+
+        /// <summary>
+        /// Is the user input equal to that of the  combination
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public bool AreEqualByIndex(int index)
+        {
+            return userInput[index] == combination[index];
         }
 
         /// <summary>
@@ -165,6 +179,15 @@ namespace Gameplay.States
         public int GetCombinationNumber()
         {
             return combination[GetCurrentCombinationCount()];
+        }
+
+        /// <summary>
+        /// Get user input by current combinationCount
+        /// </summary>
+        /// <returns></returns>
+        public int GetUserInputNumber(int index)
+        {
+            return userInput[index];
         }
 
         /// <summary>
