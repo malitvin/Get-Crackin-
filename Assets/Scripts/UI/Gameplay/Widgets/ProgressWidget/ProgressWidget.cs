@@ -1,17 +1,13 @@
 ﻿//Unity
 using UnityEngine;
-using UnityEngine.UI;
 
 //Game
 using Common.Attributes;
-using UI.Gameplay.Widgets;
+using Common.Extensions;
+using UI.Framework;
 
 //C#
 using System;
-using System.Collections;
-
-//Game
-using Common.Extensions;
 
 namespace UI.Gameplay.Widgets.ProgressWidget
 {
@@ -56,14 +52,15 @@ namespace UI.Gameplay.Widgets.ProgressWidget
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.X)) UnLockOrb();
-            if (Input.GetKeyDown(KeyCode.Y)) ResetProgress();
         }
 
         private void CreateListeners()
         {
             Action<string> listenForInit = new Action<string>(InitProgressWidget);
-            StartListenting(Framework.UIEvents.Type.InitProgressWidget, listenForInit);
+            StartListenting(UIEvents.Type.InitProgressWidget, listenForInit);
+
+            Action<string> listenForUnlcok = new Action<string>(UnLockOrb);
+            StartListenting(UIEvents.Type.UnlockProgressOrb, listenForUnlcok);
 
         }
 
@@ -96,7 +93,7 @@ namespace UI.Gameplay.Widgets.ProgressWidget
 
         }
 
-        public void UnLockOrb()
+        public void UnLockOrb(string s)
         {
             progressOrbs[unlockCounter].Morph(unlockedOrb, unlockedLine, unlockAnimationTime);
             unlockCounter++;

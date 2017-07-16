@@ -21,12 +21,14 @@ namespace UI.Framework
             /// GAMEPLAY
             /// </summary>
             InitProgressWidget,
+            UnlockProgressOrb,
             ToggleGamePanel,
             PrepareCombinationNumber,
             DisplayCombinationNumber,
             RemoveCombination,
             ChangeGameStatusText,
             SpawnAnimNumber,
+            UpdateDetectionSlider,
 
             /// <summary>
             /// Other

@@ -46,6 +46,12 @@ namespace UI.Framework
             get { return b ?? (b = GetComponent<Button>()); }
         }
 
+        private Slider slider;
+        protected Slider _Slider
+        {
+            get { return slider ?? (slider = GetComponent<Slider>()); }
+        }
+
         private Toggle t;
         protected Toggle _Toggle
         {
@@ -151,6 +157,21 @@ namespace UI.Framework
                     "oncomplete", (Action<object>)(newValue => { }),
                     "oncompletetarget", gameObject)
                     );
+        }
+
+
+        protected void SliderValueTo(float value, float time = 0, iTween.EaseType easeType = iTween.EaseType.linear, float delay = 0)
+        {
+            iTween.ValueTo(gameObject, iTween.Hash(
+                   "from", _Slider.value,
+                   "to", value,
+                   "time", time,
+                   "easetype", easeType,
+                   "delay", delay,
+                   "oncomplete", (Action<object>)(newValue => { }),
+                   "oncompletetarget", gameObject,
+                   "onUpdate", (Action<object>)(newValue => { _Slider.value = (float)newValue; })
+               ));
         }
         #endregion
 

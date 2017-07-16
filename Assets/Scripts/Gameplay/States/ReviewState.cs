@@ -92,6 +92,8 @@ namespace Gameplay.States
             else
             {
                 stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.Display));
+                //Unlock progress orb
+                stateMachine.TriggerHUDEvent(UIEvents.Type.UnlockProgressOrb);
             }
         }
         private IEnumerator FadeOutNumbers(GameplayStateMachine.GameplayState nextState)
