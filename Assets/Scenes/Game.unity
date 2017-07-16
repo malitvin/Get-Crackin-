@@ -826,6 +826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBlueprint: {fileID: 11400000, guid: 8cfe1f27810ebe84cbd18b716aab0e70, type: 2}
   currentGameplayState: Intro
+  detectionLevel: 0
   round: 0
   currentCombinationCount: 0
 --- !u!114 &790799204
