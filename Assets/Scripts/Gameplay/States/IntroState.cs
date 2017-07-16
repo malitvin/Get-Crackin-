@@ -26,7 +26,7 @@ namespace Gameplay.States
         #endregion
 
         #region Privates
-        private const float cameraInWaitTime = 2;
+        private const float cameraInWaitTime = 2.5f;
         #endregion
 
         #region Interface Methods
