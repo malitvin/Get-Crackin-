@@ -88,7 +88,7 @@ namespace Gameplay.States
         private IEnumerator FadeOutNumbers()
         {
             //wait a second to give the user time
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(3f);
             //remove numbers on UI
             stateMachine.TriggerHUDEvent(UIEvents.Type.RemoveCombination, combinationFadeOutTime.ToString());
             //fade out combination

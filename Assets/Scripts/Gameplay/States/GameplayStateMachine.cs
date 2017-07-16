@@ -39,7 +39,12 @@ namespace Gameplay.States
         #region Private Variables
         private List<int> combination;
         private List<int> userInput;
+
+        [ReadOnlyCustom]
+        public float detectionLevel = 0;
+        [ReadOnlyCustom]
         public int round = 0;
+        [ReadOnlyCustom]
         public int currentCombinationCount;
         #endregion
 
@@ -215,6 +220,9 @@ namespace Gameplay.States
             return currentCombinationCount;
         }
 
+        /// <summary>
+        /// Reset Combination COunt
+        /// </summary>
         public void ResetCombinationCount()
         {
             currentCombinationCount = 0;
@@ -244,6 +252,7 @@ namespace Gameplay.States
         {
             round++;
         }
+
         #endregion
 
         #region UI Methods

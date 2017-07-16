@@ -60,6 +60,12 @@ namespace Gameplay.States
                     ? AudioFiles.GameplaySoundClip.Correct
                     : AudioFiles.GameplaySoundClip.Incorrect);
 
+                if(!correctInput)
+                {
+                    stateMachine.detectionLevel += stateMachine.GetGameBlueprint().incorrectPenalty;
+                    stateMachine.TriggerHUDEvent(UIEvents.Type.UpdateDetectionSlider, stateMachine.detectionLevel.ToString());
+                }
+
                 //Review Complete
                 if(currentReviewIndex == stateMachine.GetRound()-1)
                 {

@@ -26,6 +26,9 @@ namespace Gameplay.States
             //UI
             stateMachine.TriggerHUDEvent(UIEvents.Type.InitProgressWidget,stateMachine.GetGameBlueprint().combinationCount.ToString());
 
+            //reset detection level
+            stateMachine.detectionLevel = 0;
+
             stateMachine.ChangeState(GameplayStateMachine.GameplayState.Intro);
         }
 

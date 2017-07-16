@@ -15,15 +15,18 @@ MonoBehaviour:
   - name: Easy Blueprint
     difficulty: 0
     combinationCount: 30
+    incorrectPenalty: 15
     initialDisplayWait: 2
     timeBetweenNumbersDisplayed: 0.5
   - name: Moderate Blueprint
     difficulty: 1
     combinationCount: 45
+    incorrectPenalty: 10
     initialDisplayWait: 1.5
     timeBetweenNumbersDisplayed: 0.4
   - name: Insane Blueprint
     difficulty: 2
     combinationCount: 60
+    incorrectPenalty: 5
     initialDisplayWait: 1
     timeBetweenNumbersDisplayed: 0.3

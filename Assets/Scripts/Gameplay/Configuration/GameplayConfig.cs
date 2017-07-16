@@ -22,6 +22,12 @@ namespace Gameplay.Configuration
             public GameSettings.Difficulty difficulty;
             [Range(10, 60)]
             public int combinationCount;
+
+            [Range(1,50)]
+            [Tooltip("How much does the detection level go up if an answer is incorrect")]
+            public float incorrectPenalty;
+            [Space(10)]
+
             [Range(0.25f, 2f)]
             public float initialDisplayWait;
             [Range(0.25f, 2f)]
