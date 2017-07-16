@@ -1,10 +1,13 @@
-﻿//Unity
+﻿ //Unity
 using UnityEngine;
 
 //Game
 using Audio;
 using UI.Framework;
 using UI.Gameplay.Widgets.CombinationWidget;
+
+//C#
+using System.Collections;
 
 namespace Gameplay.States
 {
@@ -20,6 +23,7 @@ namespace Gameplay.States
         #endregion
 
         #region Privates
+        private const float combinationFadeOutTime = 0.5f;
         private bool reviewing = true;
         private float reviewTimer = 0;
         private int currentReviewIndex = 0;
@@ -56,11 +60,14 @@ namespace Gameplay.States
                     ? AudioFiles.GameplaySoundClip.Correct
                     : AudioFiles.GameplaySoundClip.Incorrect);
 
-                if(currentReviewIndex == stateMachine.GetCombinationNumber())
+                //Review Complete
+                if(currentReviewIndex == stateMachine.GetRound()-1)
                 {
-                    Debug.Log("DONE");
-                }
+                    reviewing = false;
+                    DetermineNextSteps();
 
+                }
+                currentReviewIndex++;
 
             }
         }
@@ -70,6 +77,33 @@ namespace Gameplay.States
             reviewing = true;
             reviewTimer = 0;
             currentReviewIndex = 0;
+        }
+        #endregion
+
+        #region Gameplay Methods
+        private void DetermineNextSteps()
+        {
+            //You have somehow won
+            if (stateMachine.GetRound() == stateMachine.GetGameBlueprint().combinationCount + 1)
+            {
+                stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.GameOver));
+            }
+            //continue game
+            else
+            {
+                stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.Display));
+            }
+        }
+        private IEnumerator FadeOutNumbers(GameplayStateMachine.GameplayState nextState)
+        {
+            //wait a second to give the user time
+            yield return new WaitForSeconds(1.5f);
+            //remove numbers on UI
+            stateMachine.TriggerHUDEvent(UIEvents.Type.RemoveCombination, combinationFadeOutTime.ToString());
+            //fade out combination
+            yield return new WaitForSeconds(combinationFadeOutTime);
+            //TO Next State
+            stateMachine.ChangeState(nextState);
         }
         #endregion
     }

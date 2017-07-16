@@ -39,8 +39,8 @@ namespace Gameplay.States
         #region Private Variables
         private List<int> combination;
         private List<int> userInput;
-        private int round = 1;
-        private int currentCombinationCount;
+        public int round = 0;
+        public int currentCombinationCount;
         #endregion
 
         #region Components
@@ -114,11 +114,20 @@ namespace Gameplay.States
         #endregion
 
         #region GAMEPLAY Methods
+        /// <summary>
+        /// Trigger Gameplay event
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="message"></param>
         public void TriggerGameplayEvent(GameplayEvent.Type e,string message)
         {
             GAMEManager.Instance.TriggerGameplayEvent(e, message);
         }
 
+        /// <summary>
+        /// PLay Audio
+        /// </summary>
+        /// <param name="clip"></param>
         public void PlaySound(Audio.AudioFiles.GameplaySoundClip clip)
         {
             GAMEManager.Instance.PlaySound(clip);
@@ -158,8 +167,15 @@ namespace Gameplay.States
         /// <param name="input"></param>
         public void AddToUserInput(int input)
         {
-            if (userInput == null) userInput = new List<int>();
             userInput.Add(input);
+        }
+
+        /// <summary>
+        /// Clear user input
+        /// </summary>
+        public void ClearUserInput()
+        {
+            userInput = new List<int>();
         }
 
         /// <summary>
@@ -197,6 +213,11 @@ namespace Gameplay.States
         public int GetCurrentCombinationCount()
         {
             return currentCombinationCount;
+        }
+
+        public void ResetCombinationCount()
+        {
+            currentCombinationCount = 0;
         }
 
         /// <summary>

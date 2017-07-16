@@ -32,9 +32,15 @@ namespace Gameplay.States
         #region Interface Methods
         public void Begin()
         {
+            //increment the round we are on
+            stateMachine.IncrementRound();
+            //incrmenet combination count
+            stateMachine.ResetCombinationCount();
+
             stateMachine.StartCoroutine(WaitForDisplay());
 
             stateMachine.TriggerHUDEvent(UIEvents.Type.ChangeGameStatusText, "Displaying Combination");
+
         }
 
         public void Update()
@@ -68,6 +74,7 @@ namespace Gameplay.States
         public void End()
         {
             displayingNumbers = false;
+            displayTimer = 0;
         }
         #endregion
 
