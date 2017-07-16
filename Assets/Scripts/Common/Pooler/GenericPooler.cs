@@ -153,7 +153,7 @@ namespace Common.Pooler
         {
             foreach(PooledObject o in pooledObjects)
             {
-                OnRemove(o);
+                RemovePooledObject(o);
             }
         }
 

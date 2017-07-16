@@ -47,7 +47,7 @@ namespace UI.Gameplay.Widgets.GameStatusWidget
             _ThisUI.Rect.anchoredPosition += new Vector2(0,animSpeed * Time.smoothDeltaTime);
 
             destructionTimer += Time.deltaTime;
-            if (destructionTimer > DESTRUCT_TIME) Remove();
+            if (destructionTimer > DESTRUCT_TIME) GetPooler().RemovePooledObject(this);
         }
 
 
