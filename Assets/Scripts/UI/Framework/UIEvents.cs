@@ -25,6 +25,7 @@ namespace UI.Framework
             PrepareCombinationNumber,
             DisplayCombinationNumber,
             RemoveCombination,
+            ChangeGameStatusText,
 
             /// <summary>
             /// Other

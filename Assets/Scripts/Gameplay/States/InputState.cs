@@ -36,7 +36,7 @@ namespace Gameplay.States
         #region Interface Methods
         public void Begin()
         {
-
+            stateMachine.TriggerHUDEvent(UIEvents.Type.ChangeGameStatusText, "Receiving Combination");
         }
 
         public void Update()

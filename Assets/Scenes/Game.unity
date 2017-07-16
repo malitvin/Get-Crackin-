@@ -1213,6 +1213,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114856183274304302, guid: 468cde89f7cffef4facda3b1fe836cac,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114856183274304302, guid: 468cde89f7cffef4facda3b1fe836cac,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114157112489431186, guid: 468cde89f7cffef4facda3b1fe836cac,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -1227,47 +1237,6 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224275606348677910, guid: 468cde89f7cffef4facda3b1fe836cac,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 114007892785505090, guid: 468cde89f7cffef4facda3b1fe836cac,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 51dbc4c59b0d8e54b95d85e8bf29a39c,
-        type: 3}
-    - target: {fileID: 114007892785505090, guid: 468cde89f7cffef4facda3b1fe836cac,
-        type: 2}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114328630622304758, guid: 468cde89f7cffef4facda3b1fe836cac,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 51dbc4c59b0d8e54b95d85e8bf29a39c,
-        type: 3}
-    - target: {fileID: 114328630622304758, guid: 468cde89f7cffef4facda3b1fe836cac,
-        type: 2}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114483382433608562, guid: 468cde89f7cffef4facda3b1fe836cac,
-        type: 2}
-      propertyPath: m_Value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224151184928452808, guid: 468cde89f7cffef4facda3b1fe836cac,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1571036190872412, guid: 468cde89f7cffef4facda3b1fe836cac, type: 2}
-      propertyPath: m_Name
-      value: Text
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 468cde89f7cffef4facda3b1fe836cac, type: 2}

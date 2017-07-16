@@ -142,6 +142,8 @@
     <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\CombinationWidget\CombinationDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\CombinationWidget\CombinationOrb.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\GameplayWidget.cs" />
+    <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\GameStatusWidget\CurrentStateText.cs" />
+    <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\GameStatusWidget\GameStatusWidget.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\ProgressWidget\ProgressOrb.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\ProgressWidget\ProgressWidget.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\Events\MainMenuObserver.cs" />

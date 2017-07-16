@@ -28,7 +28,7 @@ namespace Gameplay.States
         #region Interface Methods
         public void Begin()
         {
-
+            stateMachine.TriggerHUDEvent(UIEvents.Type.ChangeGameStatusText, "Comparing Input");
         }
 
         public void Update()

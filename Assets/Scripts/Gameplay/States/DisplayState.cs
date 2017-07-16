@@ -33,6 +33,8 @@ namespace Gameplay.States
         public void Begin()
         {
             stateMachine.StartCoroutine(WaitForDisplay());
+
+            stateMachine.TriggerHUDEvent(UIEvents.Type.ChangeGameStatusText, "Displaying Combination");
         }
 
         public void Update()
