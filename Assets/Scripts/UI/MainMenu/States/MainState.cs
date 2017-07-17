@@ -2,6 +2,7 @@
 using UnityEngine;
 
 //Game
+using Audio;
 using Managers.GameSettings;
 using UI.MainMenu.Panels;
 using UI.Framework;
@@ -158,24 +159,28 @@ namespace UI.MainMenu.States
         {
             //listen for navigation
             transitionListen = new Action<string>(TransitionalListen);
-            controller._MainMenuObserver.StartListening(Framework.UIEvents.Type.MainMenuNavigation, transitionListen);
+            controller._MainMenuObserver.StartListening(UIEvents.Type.MainMenuNavigation, transitionListen);
 
             //listen for difficulty change
             changeDifficulty = new Action<string>(ChangeDifficultyListen);
-            controller._MainMenuObserver.StartListening(Framework.UIEvents.Type.UpdateDifficulty, changeDifficulty);
+            controller._MainMenuObserver.StartListening(UIEvents.Type.UpdateDifficulty, changeDifficulty);
 
             //listen for start playing game
             listenStart = new Action<string>(ToExitState);
-            controller._MainMenuObserver.StartListening(Framework.UIEvents.Type.PlayGame, listenStart);
+            controller._MainMenuObserver.StartListening(UIEvents.Type.PlayGame, listenStart);
+
+            //listen for play button sound
+            Action<string> listenSFX = new Action<string>(PlayButtonClickSound);
+            controller._MainMenuObserver.StartListening(UIEvents.Type.PlayButtonSound, listenSFX);
 
 
         }
 
         private void StopListenForEvents()
         {
-            controller._MainMenuObserver.StopListening(Framework.UIEvents.Type.MainMenuNavigation, transitionListen);
-            controller._MainMenuObserver.StopListening(Framework.UIEvents.Type.UpdateDifficulty, changeDifficulty);
-            controller._MainMenuObserver.StopListening(Framework.UIEvents.Type.PlayGame, listenStart);
+            controller._MainMenuObserver.StopListening(UIEvents.Type.MainMenuNavigation, transitionListen);
+            controller._MainMenuObserver.StopListening(UIEvents.Type.UpdateDifficulty, changeDifficulty);
+            controller._MainMenuObserver.StopListening(UIEvents.Type.PlayGame, listenStart);
         }
 
         /// <summary>
@@ -194,6 +199,12 @@ namespace UI.MainMenu.States
         public void ChangeDifficultyListen(string s)
         {
             GameSettings.SetGameDifficulty((GameSettings.Difficulty)Enum.Parse(typeof(GameSettings.Difficulty),s));
+        }
+
+        //Play button click sound
+        private void PlayButtonClickSound(string s)
+        {
+            controller._BaseSoundController.PlayUISound(AudioFiles.UISoundClip.CartoonPop);
         }
         #endregion
     }

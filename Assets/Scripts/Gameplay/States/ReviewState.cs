@@ -27,6 +27,9 @@ namespace Gameplay.States
         private bool reviewing = true;
         private float reviewTimer = 0;
         private int currentReviewIndex = 0;
+
+        private int pointsThisRound = 0;
+        private bool perfectRound = true;
         #endregion
 
         #region Interface Methods
@@ -60,8 +63,13 @@ namespace Gameplay.States
                     ? AudioFiles.GameplaySoundClip.Correct
                     : AudioFiles.GameplaySoundClip.Incorrect);
 
-                if(!correctInput)
+                if(correctInput)
                 {
+                    pointsThisRound += stateMachine.GetGameBlueprint().pointsPerCorrectAnswer;
+                }
+                else
+                {
+                    perfectRound = false;
                     stateMachine.detectionLevel += stateMachine.GetGameBlueprint().incorrectPenalty;
                     stateMachine.TriggerHUDEvent(UIEvents.Type.UpdateDetectionSlider, stateMachine.detectionLevel.ToString());
                 }
@@ -81,16 +89,23 @@ namespace Gameplay.States
         public void End()
         {
             reviewing = true;
+            perfectRound = true;
             reviewTimer = 0;
             currentReviewIndex = 0;
+            pointsThisRound = 0;
         }
         #endregion
 
         #region Gameplay Methods
         private void DetermineNextSteps()
         {
-            //You have somehow won
-            if (stateMachine.GetRound() == stateMachine.GetGameBlueprint().combinationCount + 1)
+            //You have been detected
+            if (stateMachine.detectionLevel >= 100)
+            {
+                stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.GameOver));
+            }
+            //You won! Somehow
+            else if(stateMachine.GetRound() == stateMachine.GetGameBlueprint().combinationCount + 1)
             {
                 stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.GameOver));
             }
@@ -100,6 +115,8 @@ namespace Gameplay.States
                 stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.Display));
                 //Unlock progress orb
                 stateMachine.TriggerHUDEvent(UIEvents.Type.UnlockProgressOrb);
+                //Update Score Text
+                stateMachine.TriggerHUDEvent(UIEvents.Type.UpdateScoreText,GetUpdatedScore().ToString());
             }
         }
         private IEnumerator FadeOutNumbers(GameplayStateMachine.GameplayState nextState)
@@ -112,6 +129,13 @@ namespace Gameplay.States
             yield return new WaitForSeconds(combinationFadeOutTime);
             //TO Next State
             stateMachine.ChangeState(nextState);
+        }
+
+        private int GetUpdatedScore()
+        {
+            stateMachine.playerScore += (perfectRound) ? stateMachine.GetGameBlueprint().pointsPerCorrectRound : 0;
+            stateMachine.playerScore += pointsThisRound;
+            return stateMachine.playerScore;
         }
         #endregion
     }

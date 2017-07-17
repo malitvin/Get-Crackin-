@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 
 //Game
+using Audio;
 using UI.Framework;
 using UI.MainMenu.Panels;
 using UI.MainMenu.Events;
@@ -70,6 +71,12 @@ namespace UI.MainMenu.States
         public MainMenuObserver _MainMenuObserver
         {
             get { return mainMenuObserver ?? (mainMenuObserver = FindObjectOfType<MainMenuObserver>()); }
+        }
+
+        private BaseSoundController baseSoundController;
+        public BaseSoundController _BaseSoundController
+        {
+            get { return baseSoundController ?? (baseSoundController = FindObjectOfType<BaseSoundController>()); }
         }
         #endregion
 

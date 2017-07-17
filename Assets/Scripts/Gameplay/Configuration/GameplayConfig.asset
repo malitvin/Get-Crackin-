@@ -14,19 +14,28 @@ MonoBehaviour:
   blueprints:
   - name: Easy Blueprint
     difficulty: 0
-    combinationCount: 30
-    incorrectPenalty: 15
+    combinationCount: 25
+    pointsPerCorrectAnswer: 1
+    pointsPerCorrectRound: 5
+    pointsForWin: 150
+    incorrectPenalty: 100
     initialDisplayWait: 2
     timeBetweenNumbersDisplayed: 0.5
   - name: Moderate Blueprint
     difficulty: 1
     combinationCount: 45
+    pointsPerCorrectAnswer: 1
+    pointsPerCorrectRound: 6
+    pointsForWin: 500
     incorrectPenalty: 10
     initialDisplayWait: 1.5
     timeBetweenNumbersDisplayed: 0.4
   - name: Insane Blueprint
     difficulty: 2
     combinationCount: 60
+    pointsPerCorrectAnswer: 1
+    pointsPerCorrectRound: 7
+    pointsForWin: 10000
     incorrectPenalty: 5
     initialDisplayWait: 1
     timeBetweenNumbersDisplayed: 0.3

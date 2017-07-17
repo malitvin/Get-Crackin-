@@ -22,7 +22,7 @@ namespace Cameras
             get { return cam ?? (cam = GetComponentInChildren<Camera>()); }
         }
 
-        public enum LocationKey { Main, Win }
+        public enum LocationKey { Main, Win,Lose,Start }
 
         [System.Serializable]
         public struct Location

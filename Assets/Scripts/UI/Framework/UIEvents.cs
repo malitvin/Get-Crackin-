@@ -16,6 +16,7 @@ namespace UI.Framework
             MainMenuNavigation,
             PlayGame,
             UpdateDifficulty,
+            PlayButtonSound,
 
             /// <summary>
             /// GAMEPLAY
@@ -29,6 +30,11 @@ namespace UI.Framework
             ChangeGameStatusText,
             SpawnAnimNumber,
             UpdateDetectionSlider,
+            ToggleGameOverPanel,
+            PrepareHighScoreNumber,
+            UpdateScoreText,
+            ReplayButtonSelected,
+            QuitButtonSelected,
 
             /// <summary>
             /// Other

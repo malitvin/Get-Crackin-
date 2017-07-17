@@ -17,6 +17,7 @@ namespace UI.MainMenu.Panels.PlayPanel
             base.Button_OnSelected();
             EnableInteraction(false); //disable play button by default
             TriggerEvent(Framework.UIEvents.Type.PlayGame); // Trigger Play Game Event
+            TriggerEvent(Framework.UIEvents.Type.PlayButtonSound);
         }
     }
 }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e8e293388da0746bbb67d96de89102, type: 3}
+  m_Name: MainMenuAudio
+  m_EditorClassIdentifier: 
+  gameplaySounds: []
+  UISounds:
+  - name: Button Click
+    clip: {fileID: 8300000, guid: 31cf1ed0972cf274f84d0b16476c6b9c, type: 3}
+    volume: 1
+    pitch: 1
+    group: {fileID: 243840571000210078, guid: 3e768e97ad985bc4e99849f06c26f7e2, type: 2}
+    key: 0

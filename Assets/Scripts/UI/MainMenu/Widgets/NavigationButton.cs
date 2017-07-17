@@ -19,6 +19,7 @@ namespace UI.MainMenu.Widgets
         {
             base.Button_OnSelected();
             TriggerEvent(UIEvents.Type.MainMenuNavigation,destination.ToString());
+            TriggerEvent(UIEvents.Type.PlayButtonSound);
         }
 
     }

@@ -16,24 +16,36 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 81e34514160abc049ab36bf81a6ff063, type: 3}
     volume: 1
     pitch: 1
-    group: {fileID: 243140937335932002, guid: bdbd314c2db38b04696123643a476736, type: 2}
+    group: {fileID: 243140937335932002, guid: 3e768e97ad985bc4e99849f06c26f7e2, type: 2}
     key: 0
   - name: Display Input
     clip: {fileID: 8300000, guid: 90c59c1477a7ec646ab2049affdf06d6, type: 3}
     volume: 1
     pitch: 1
-    group: {fileID: 243140937335932002, guid: bdbd314c2db38b04696123643a476736, type: 2}
+    group: {fileID: 243140937335932002, guid: 3e768e97ad985bc4e99849f06c26f7e2, type: 2}
     key: 1
   - name: Correct Input
     clip: {fileID: 8300000, guid: 054c99eb759223a41be7c46733aa3f50, type: 3}
     volume: 1
     pitch: 1
-    group: {fileID: 243140937335932002, guid: bdbd314c2db38b04696123643a476736, type: 2}
+    group: {fileID: 243140937335932002, guid: 3e768e97ad985bc4e99849f06c26f7e2, type: 2}
     key: 2
   - name: Incorrect Input
     clip: {fileID: 8300000, guid: f5cb3f7226f87bc49b5aaec832de3fc5, type: 3}
     volume: 1
     pitch: 1
-    group: {fileID: 243140937335932002, guid: bdbd314c2db38b04696123643a476736, type: 2}
+    group: {fileID: 243140937335932002, guid: 3e768e97ad985bc4e99849f06c26f7e2, type: 2}
     key: 3
-  UISounds: []
+  - name: Game Over
+    clip: {fileID: 8300000, guid: dac0329bd95679343a2837b20e22e6af, type: 3}
+    volume: 1
+    pitch: 0.85
+    group: {fileID: 243140937335932002, guid: 3e768e97ad985bc4e99849f06c26f7e2, type: 2}
+    key: 4
+  UISounds:
+  - name: 
+    clip: {fileID: 8300000, guid: 31cf1ed0972cf274f84d0b16476c6b9c, type: 3}
+    volume: 1
+    pitch: 1
+    group: {fileID: 0}
+    key: 0

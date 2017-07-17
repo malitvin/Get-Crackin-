@@ -23,10 +23,31 @@ namespace Gameplay.Configuration
             [Range(10, 60)]
             public int combinationCount;
 
-            [Range(1,50)]
+            [Space(10)]
+
+            [Header("Scoring Values")]
+
+            [Space(5)]
+
+            [Range(1, 100)]
+            [Tooltip("How many points do you get per correct individual combo")]
+            public int pointsPerCorrectAnswer;
+            [Range(1, 100)]
+            [Tooltip("Points for an entire round being correct")]
+            public int pointsPerCorrectRound;
+            [Tooltip("How many points do you get if you win?")]
+            public int pointsForWin;
+
+            [Range(1,100)]
             [Tooltip("How much does the detection level go up if an answer is incorrect")]
             public float incorrectPenalty;
+
+
             [Space(10)]
+
+            [Header("Waiting Times")]
+
+            [Space(5)]
 
             [Range(0.25f, 2f)]
             public float initialDisplayWait;

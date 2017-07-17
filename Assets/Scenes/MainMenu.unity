@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -600,7 +600,7 @@ AudioSource:
   m_GameObject: {fileID: 442290066}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243871412059683974, guid: 3e768e97ad985bc4e99849f06c26f7e2,
+  OutputAudioMixerGroup: {fileID: 243871412059683974, guid: bdbd314c2db38b04696123643a476736,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 690dad1e095c9ec478c8b66cc63427ff, type: 3}
   m_PlayOnAwake: 1
@@ -698,6 +698,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 518952344}
+  - component: {fileID: 518952345}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -719,6 +720,18 @@ Transform:
   m_Father: {fileID: 426736410}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &518952345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 518952343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e320a0e36c38e444b8334409d6810909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  files: {fileID: 11400000, guid: af86a4738acf9fa4b97f31687a4ef7dd, type: 2}
 --- !u!1 &548699583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,6 +1550,16 @@ Prefab:
       value: 375
       objectReference: {fileID: 0}
     - target: {fileID: 224718352589031192, guid: 11a1667ef850a6346a2502d19761ac47,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224603576874620206, guid: 11a1667ef850a6346a2502d19761ac47,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 1254.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 224603576874620206, guid: 11a1667ef850a6346a2502d19761ac47,
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 0

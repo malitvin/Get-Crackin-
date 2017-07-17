@@ -28,5 +28,10 @@ namespace Common.Extensions
             return float.Parse(s);
         }
 
+        public static bool BoolParse(this string s)
+        {
+            return bool.Parse(s);
+        }
+
     }
 }

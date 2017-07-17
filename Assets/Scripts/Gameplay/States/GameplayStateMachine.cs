@@ -46,6 +46,8 @@ namespace Gameplay.States
         public int round = 0;
         [ReadOnlyCustom]
         public int currentCombinationCount;
+        [ReadOnlyCustom]
+        public int playerScore;
         #endregion
 
         #region Components
@@ -58,7 +60,7 @@ namespace Gameplay.States
         #endregion
 
         #region State Creation
-        public enum GameplayState { SetUp, Intro, Display, Input, Review, GameOver, Replay }
+        public enum GameplayState { SetUp, Intro, Display, Input, Review, GameOver, Replay,Win }
 
         private Dictionary<GameplayState, IGameState> StateLookup;
 
@@ -92,6 +94,7 @@ namespace Gameplay.States
             StateLookup.Add(GameplayState.Review, new ReviewState(this));
             StateLookup.Add(GameplayState.GameOver, new GameOverState(this));
             StateLookup.Add(GameplayState.Replay, new ReplayState(this));
+            StateLookup.Add(GameplayState.Win, new WinState(this));
         }
 
         public void ChangeState(GameplayState newState)
@@ -134,6 +137,15 @@ namespace Gameplay.States
         /// </summary>
         /// <param name="clip"></param>
         public void PlaySound(Audio.AudioFiles.GameplaySoundClip clip)
+        {
+            GAMEManager.Instance.PlaySound(clip);
+        }
+
+        /// <summary>
+        /// PLay Audio
+        /// </summary>
+        /// <param name="clip"></param> (UI)
+        public void PlaySound(Audio.AudioFiles.UISoundClip clip)
         {
             GAMEManager.Instance.PlaySound(clip);
         }
@@ -259,6 +271,10 @@ namespace Gameplay.States
         public void TriggerHUDEvent(UIEvents.Type type,string message="")
         {
             _HUD.TriggerEvent(type,message);
+        }
+        public void ListenForHUDEvent(UIEvents.Type type,System.Action<string> listen)
+        {
+            _HUD.StartListening(type, listen);
         }
         #endregion
 

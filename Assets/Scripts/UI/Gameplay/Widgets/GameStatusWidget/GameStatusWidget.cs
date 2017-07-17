@@ -27,6 +27,12 @@ namespace UI.Gameplay.Widgets.GameStatusWidget
             get { return numberFeedback ?? (numberFeedback = GetComponentInChildren<NumberFeedback>()); }
         }
 
+        private ScoreText scoreText;
+        private ScoreText _ScoreText
+        {
+            get { return scoreText ?? (scoreText = GetComponentInChildren<ScoreText>()); }
+        }
+
         protected override void Awake()
         {
             base.Awake();
@@ -41,11 +47,20 @@ namespace UI.Gameplay.Widgets.GameStatusWidget
 
             Action<string> spawnAnimationNumber = new Action<string>(SpawnAnimationNumber);
             StartListenting(UIEvents.Type.SpawnAnimNumber, spawnAnimationNumber);
+
+            Action<string> updateScoreText = new Action<string>(UpdateScoreText);
+            StartListenting(UIEvents.Type.UpdateScoreText, updateScoreText);
         }
 
         private void ChangeDisplayText(string message)
         {
             _CurrentStateText.ChangeText(message);
+        }
+
+        private void UpdateScoreText(string score)
+        {
+            int n = score.ParseIntFast();
+            _ScoreText.UpdateText(n);
         }
 
         private void SpawnAnimationNumber(string number)
