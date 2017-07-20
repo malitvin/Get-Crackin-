@@ -18,7 +18,7 @@ MonoBehaviour:
     pointsPerCorrectAnswer: 1
     pointsPerCorrectRound: 5
     pointsForWin: 150
-    incorrectPenalty: 100
+    incorrectPenalty: 15
     initialDisplayWait: 2
     timeBetweenNumbersDisplayed: 0.5
   - name: Moderate Blueprint
