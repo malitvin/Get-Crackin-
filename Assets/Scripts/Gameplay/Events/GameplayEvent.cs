@@ -5,7 +5,8 @@
         public enum Type
         {
             CameraChange,
-            OpenSafe
+            OpenSafe,
+            CloseSafe
         }
 
     }

@@ -4,6 +4,9 @@ using UnityEngine;
 //Managers
 using Managers;
 
+//Game
+using Gameplay.Events;
+
 //C#
 using System;
 
@@ -27,14 +30,23 @@ namespace Gameplay.Safe
 
         private void SetUpEvents()
         {
+            //listen open safe
             Action<string> openSafeListen = new Action<string>(OpenSafe);
-            GAMEManager.Instance.StartListening(Events.GameplayEvent.Type.OpenSafe, openSafeListen);
+            GAMEManager.Instance.StartListening(GameplayEvent.Type.OpenSafe, openSafeListen);
+
+            //listen close sage
+            Action<string> closeSafeListen = new Action<string>(CloseSafe);
+            GAMEManager.Instance.StartListening(GameplayEvent.Type.CloseSafe, closeSafeListen);
 
         }
 
         private void OpenSafe(string message)
         {
-            _Anim.SetTrigger(1);
+            _Anim.SetTrigger("Open");
+        }
+        private void CloseSafe(string message)
+        {
+            _Anim.SetTrigger("Close");
         }
     }
 }

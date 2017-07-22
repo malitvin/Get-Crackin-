@@ -52,7 +52,7 @@ namespace Gameplay.States
 
         public void End()
         {
-
+            stateMachine.TriggerGameplayEvent(GameplayEvent.Type.CloseSafe); //in case the safe is open
         }
         #endregion
 
@@ -78,6 +78,9 @@ namespace Gameplay.States
             GAMEManager.Instance.PlaySound(AudioFiles.GameplaySoundClip.GameWin);
             //OPEN SAFE!
             stateMachine.TriggerGameplayEvent(GameplayEvent.Type.OpenSafe);
+
+            //Display game over panel
+            stateMachine.StartCoroutine(DisplayGameOverPanel(7.5f));
         }
 
         private void LOSEGAME()
@@ -88,15 +91,15 @@ namespace Gameplay.States
             GAMEManager.Instance.PlaySound(AudioFiles.GameplaySoundClip.GameOver);
 
             //Display game over panel
-            stateMachine.StartCoroutine(DisplayGameOverPanel());
+            stateMachine.StartCoroutine(DisplayGameOverPanel(3.5f));
         }
         #endregion
 
 
         #region Gameplay Methods
-        private IEnumerator DisplayGameOverPanel()
+        private IEnumerator DisplayGameOverPanel(float waitTime)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(waitTime);
             stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareHighScoreNumber, false.ToString());
             stateMachine.TriggerHUDEvent(UIEvents.Type.ToggleGameOverPanel, HUD.VisibleToggle.Display.ToString());
         }
