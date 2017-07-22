@@ -690,6 +690,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114980135404494804, guid: 1574fed44ec17e94c80cdb167d7dc9c0, type: 2}
+    - {fileID: 111234640423300016, guid: 1574fed44ec17e94c80cdb167d7dc9c0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1574fed44ec17e94c80cdb167d7dc9c0, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &263029175
@@ -1846,6 +1847,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67cc722b07aa9a4fa754d944c59ba15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1275466995
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275466993}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 151596b8f276f0c4bab3660cdaf2dae6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &1396843133 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4611630367609338, guid: 1574fed44ec17e94c80cdb167d7dc9c0,

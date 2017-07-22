@@ -36,6 +36,12 @@ MonoBehaviour:
     pitch: 1
     group: {fileID: 243140937335932002, guid: 3e768e97ad985bc4e99849f06c26f7e2, type: 2}
     key: 3
+  - name: Game Win
+    clip: {fileID: 8300000, guid: 48c6dad0e9c9a894b8b0b6ede091742c, type: 3}
+    volume: 1
+    pitch: 1
+    group: {fileID: 243140937335932002, guid: bdbd314c2db38b04696123643a476736, type: 2}
+    key: 5
   - name: Game Over
     clip: {fileID: 8300000, guid: dac0329bd95679343a2837b20e22e6af, type: 3}
     volume: 1

@@ -14,10 +14,10 @@ namespace Gameplay.Safe
     /// </summary>
     public class SafeActor : MonoBehaviour
     {
-        private Animation anim;
-        private Animation _Animation
+        private Animator anim;
+        private Animator _Anim
         {
-            get { return anim ?? (anim = GetComponent<Animation>()); }
+            get { return anim ?? (anim = GetComponent<Animator>()); }
         }
 
         private void Awake()
@@ -34,7 +34,7 @@ namespace Gameplay.Safe
 
         private void OpenSafe(string message)
         {
-            _Animation.Play();
+            _Anim.SetTrigger(1);
         }
     }
 }
