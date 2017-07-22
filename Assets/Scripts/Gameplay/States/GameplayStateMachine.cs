@@ -41,6 +41,8 @@ namespace Gameplay.States
         private List<int> userInput;
 
         [ReadOnlyCustom]
+        public bool gameWon = false;
+        [ReadOnlyCustom]
         public float detectionLevel = 0;
         [ReadOnlyCustom]
         public int round = 0;
@@ -94,7 +96,6 @@ namespace Gameplay.States
             StateLookup.Add(GameplayState.Review, new ReviewState(this));
             StateLookup.Add(GameplayState.GameOver, new GameOverState(this));
             StateLookup.Add(GameplayState.Replay, new ReplayState(this));
-            StateLookup.Add(GameplayState.Win, new WinState(this));
         }
 
         public void ChangeState(GameplayState newState)
@@ -127,7 +128,7 @@ namespace Gameplay.States
         /// </summary>
         /// <param name="e"></param>
         /// <param name="message"></param>
-        public void TriggerGameplayEvent(GameplayEvent.Type e,string message)
+        public void TriggerGameplayEvent(GameplayEvent.Type e,string message="")
         {
             GAMEManager.Instance.TriggerGameplayEvent(e, message);
         }

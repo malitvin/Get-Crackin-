@@ -35,6 +35,10 @@ namespace UI.Framework
             UpdateScoreText,
             ReplayButtonSelected,
             QuitButtonSelected,
+            /// <summary>
+            /// GAMEPLAY RESET
+            /// </summary>
+            ResetProgressOrbs,
 
             /// <summary>
             /// Other

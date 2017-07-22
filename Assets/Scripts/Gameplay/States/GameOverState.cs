@@ -37,13 +37,12 @@ namespace Gameplay.States
 
             //Hide Game Panel
             stateMachine.TriggerHUDEvent(UIEvents.Type.ToggleGamePanel, HUD.VisibleToggle.Hide.ToString());
-            //move out camera
-            stateMachine.TriggerGameplayEvent(GameplayEvent.Type.CameraChange, GameplayCamera.LocationKey.Lose.ToString());
-            //Play game Over sound
-            GAMEManager.Instance.PlaySound(AudioFiles.GameplaySoundClip.GameOver);
 
-            //Display game over panel
-            stateMachine.StartCoroutine(DisplayGameOverPanel());
+
+            //win or lose?
+            if (stateMachine.gameWon) WONGAME();
+            else { LOSEGAME(); }
+
         }
 
         public void Update()
@@ -57,7 +56,7 @@ namespace Gameplay.States
         }
         #endregion
 
-        #region Gameplay Methods
+
         private void CreateListeners()
         {
             //listen for replay button selected on game over panel
@@ -69,10 +68,36 @@ namespace Gameplay.States
             stateMachine.ListenForHUDEvent(UIEvents.Type.QuitButtonSelected, ListenForQuitButton);
         }
 
+
+        #region WIN AND LOSE METHODS
+        private void WONGAME()
+        {
+            //move out camera
+            stateMachine.TriggerGameplayEvent(GameplayEvent.Type.CameraChange, GameplayCamera.LocationKey.Win.ToString());
+            //Play game Over sound
+            GAMEManager.Instance.PlaySound(AudioFiles.GameplaySoundClip.GameWin);
+            //OPEN SAFE!
+            stateMachine.TriggerGameplayEvent(GameplayEvent.Type.OpenSafe);
+        }
+
+        private void LOSEGAME()
+        {
+            //move out camera
+            stateMachine.TriggerGameplayEvent(GameplayEvent.Type.CameraChange, GameplayCamera.LocationKey.Lose.ToString());
+            //Play game Over sound
+            GAMEManager.Instance.PlaySound(AudioFiles.GameplaySoundClip.GameOver);
+
+            //Display game over panel
+            stateMachine.StartCoroutine(DisplayGameOverPanel());
+        }
+        #endregion
+
+
+        #region Gameplay Methods
         private IEnumerator DisplayGameOverPanel()
         {
             yield return new WaitForSeconds(3);
-            stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareHighScoreNumber,false.ToString());
+            stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareHighScoreNumber, false.ToString());
             stateMachine.TriggerHUDEvent(UIEvents.Type.ToggleGameOverPanel, HUD.VisibleToggle.Display.ToString());
         }
 
@@ -83,6 +108,7 @@ namespace Gameplay.States
         private void ReplayGame(string message)
         {
             stateMachine.PlaySound(AudioFiles.UISoundClip.CartoonPop);
+            stateMachine.ChangeState(GameplayStateMachine.GameplayState.Replay);
         }
 
         /// <summary>
@@ -94,6 +120,8 @@ namespace Gameplay.States
             stateMachine.PlaySound(AudioFiles.UISoundClip.CartoonPop);
             stateMachine.StartCoroutine(QuitRoutine());
         }
+
+
         //Sore Loser
         private IEnumerator QuitRoutine()
         {
@@ -102,7 +130,7 @@ namespace Gameplay.States
             stateMachine.TriggerGameplayEvent(GameplayEvent.Type.CameraChange, GameplayCamera.LocationKey.Start.ToString());
             yield return new WaitForSeconds(3);
             SceneManager.LoadScene(0); //LOAD MAIN MENU
-           
+
         }
         #endregion
     }

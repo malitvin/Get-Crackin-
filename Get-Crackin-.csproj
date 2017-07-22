@@ -120,6 +120,7 @@
     <Compile Include="Assets\Scripts\Gameplay\Events\GameplayEvent.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Events\GameplayObserver.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Input\NumberInput.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Safe\SafeActor.cs" />
     <Compile Include="Assets\Scripts\Gameplay\States\DisplayState.cs" />
     <Compile Include="Assets\Scripts\Gameplay\States\GameOverState.cs" />
     <Compile Include="Assets\Scripts\Gameplay\States\GameplayStateMachine.cs" />
@@ -129,7 +130,6 @@
     <Compile Include="Assets\Scripts\Gameplay\States\ReplayState.cs" />
     <Compile Include="Assets\Scripts\Gameplay\States\ReviewState.cs" />
     <Compile Include="Assets\Scripts\Gameplay\States\SetUpState.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\States\WinState.cs" />
     <Compile Include="Assets\Scripts\Managers\GAMEManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GameSettings.cs" />
     <Compile Include="Assets\Scripts\UI\Effects\NumberRipple.cs" />

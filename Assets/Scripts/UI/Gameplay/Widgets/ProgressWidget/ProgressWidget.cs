@@ -62,6 +62,9 @@ namespace UI.Gameplay.Widgets.ProgressWidget
             Action<string> listenForUnlcok = new Action<string>(UnLockOrb);
             StartListenting(UIEvents.Type.UnlockProgressOrb, listenForUnlcok);
 
+            Action<string> listenForReset = new Action<string>(ResetProgress);
+            StartListenting(UIEvents.Type.ResetProgressOrbs, listenForReset);
+
         }
 
         private void InitProgressWidget(string s)
@@ -99,7 +102,7 @@ namespace UI.Gameplay.Widgets.ProgressWidget
             unlockCounter++;
         }
 
-        private void ResetProgress()
+        private void ResetProgress(string mesage)
         {
             unlockCounter = 0;
             int count = progressOrbs.Length;

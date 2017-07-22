@@ -102,21 +102,30 @@ namespace Gameplay.States
             //You have been detected
             if (stateMachine.detectionLevel >= 100)
             {
+                //to game over state
                 stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.GameOver));
             }
             //You won! Somehow
-            else if(stateMachine.GetRound() == stateMachine.GetGameBlueprint().combinationCount + 1)
+            else if(stateMachine.GetRound() == stateMachine.GetGameBlueprint().combinationCount)
             {
+                stateMachine.gameWon = true; //GAME WON!
+                
+                //update score with win points!
+                stateMachine.playerScore += stateMachine.GetGameBlueprint().pointsForWin;
+                stateMachine.TriggerHUDEvent(UIEvents.Type.UpdateScoreText, stateMachine.playerScore.ToString());
+                //To Game over state
                 stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.GameOver));
             }
             //continue game
             else
             {
-                stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.Display));
+               
                 //Unlock progress orb
                 stateMachine.TriggerHUDEvent(UIEvents.Type.UnlockProgressOrb);
                 //Update Score Text
                 stateMachine.TriggerHUDEvent(UIEvents.Type.UpdateScoreText,GetUpdatedScore().ToString());
+                //TO DISPLAY STATE
+                stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.Display));
             }
         }
         private IEnumerator FadeOutNumbers(GameplayStateMachine.GameplayState nextState)

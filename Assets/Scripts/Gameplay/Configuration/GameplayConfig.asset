@@ -14,11 +14,11 @@ MonoBehaviour:
   blueprints:
   - name: Easy Blueprint
     difficulty: 0
-    combinationCount: 25
+    combinationCount: 1
     pointsPerCorrectAnswer: 1
     pointsPerCorrectRound: 5
     pointsForWin: 150
-    incorrectPenalty: 15
+    incorrectPenalty: 100
     initialDisplayWait: 2
     timeBetweenNumbersDisplayed: 0.5
   - name: Moderate Blueprint

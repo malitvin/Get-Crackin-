@@ -20,7 +20,7 @@ namespace Gameplay.Configuration
         {
             public string name;
             public GameSettings.Difficulty difficulty;
-            [Range(10, 60)]
+            [Range(1, 60)]
             public int combinationCount;
 
             [Space(10)]
