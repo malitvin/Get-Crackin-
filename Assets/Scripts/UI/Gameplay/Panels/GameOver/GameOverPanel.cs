@@ -1,4 +1,9 @@
 ﻿//Unity
+using UnityEngine;
+using UnityEngine.UI;
+
+//TMPRO
+using TMPro;
 
 //Game
 using Common.Extensions;
@@ -16,6 +21,24 @@ namespace UI.Gameplay.Panels
     {
         public enum Options { Replay, Quit }
 
+        public Image header;
+        private TextMeshProUGUI txt;
+        private TextMeshProUGUI HeaderText
+        {
+            get { return txt ?? (txt = header.GetComponentInChildren<TextMeshProUGUI>()); }
+        }
+
+
+        [Space(10)]
+        public string loseText;
+        public Sprite loseSprite;
+
+        [Space(10)]
+        public string winText;
+        public Sprite winSprite;
+
+        [Space(5)]
+
         public float fadeInTime = 2;
         public float fadeOutTime = 1;
 
@@ -28,6 +51,10 @@ namespace UI.Gameplay.Panels
 
         protected void SetUpEvents()
         {
+            //listen for have we won or lost the game?
+            Action<string> listenForHeaderPrep = new Action<string>(SetHeader);
+            StartListenting(UIEvents.Type.PrepareWinLoseUpdate, listenForHeaderPrep);
+
             //listen for prepare/achieving high score panel
             Action<string> ListenForHighScore = new Action<string>(ListenerAchievedHighScore);
             StartListenting(UIEvents.Type.PrepareHighScoreNumber, ListenForHighScore);
@@ -35,6 +62,15 @@ namespace UI.Gameplay.Panels
             //listen for toggling game panel
             Action<String> ToggleGameOverPanel = new Action<string>(ListenerDisplay);
             StartListenting(UIEvents.Type.ToggleGameOverPanel, ToggleGameOverPanel);
+
+            
+        }
+
+        private void SetHeader(string message)
+        {
+            bool won = message.BoolParse();
+            header.sprite = won ? winSprite : loseSprite;
+            HeaderText.text = won ? winText : loseText;
         }
 
         private void ListenerAchievedHighScore(string message)

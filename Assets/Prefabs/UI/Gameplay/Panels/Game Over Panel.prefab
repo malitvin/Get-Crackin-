@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224574661979211776}
   - component: {fileID: 222175549464315172}
-  - component: {fileID: 114970966151598886}
+  - component: {fileID: 114982940403772052}
   - component: {fileID: 114419161346167398}
   - component: {fileID: 114859615895161292}
   - component: {fileID: 225454135674544586}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224232835241477088}
   - component: {fileID: 222285245148982306}
-  - component: {fileID: 114947856116259422}
+  - component: {fileID: 114792416314821658}
   - component: {fileID: 114512699030087208}
   - component: {fileID: 114759841824408108}
   - component: {fileID: 225497644026682836}
@@ -193,6 +193,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ac91078ddb8da4898ad189aa4cc591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loseText: You've Been Detected!
+  loseSprite: {fileID: 21300000, guid: 5ccb19ae6e9a0ec4a98dac38139a8868, type: 3}
+  winText: You Cracked the Safe!
+  winSprite: {fileID: 21300000, guid: a36bf47c1d688e34fba26fa35978a00f, type: 3}
   fadeInTime: 2
   fadeOutTime: 1
 --- !u!114 &114157721060293438
@@ -692,6 +696,18 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &114792416314821658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1643728409270918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2250396ebbeffde44868d2c35be9ffcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OPTION: 0
 --- !u!114 &114859615895161292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -734,19 +750,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114947856116259422
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1643728409270918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df9dce43e731c8442bebb6dd69df60c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destination: 1
---- !u!114 &114970966151598886
+--- !u!114 &114982940403772052
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -754,10 +758,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1616571734755978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df9dce43e731c8442bebb6dd69df60c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 2250396ebbeffde44868d2c35be9ffcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: 1
+  OPTION: 1
 --- !u!222 &222010765433011716
 CanvasRenderer:
   m_ObjectHideFlags: 1

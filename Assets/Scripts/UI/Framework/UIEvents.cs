@@ -32,6 +32,7 @@ namespace UI.Framework
             UpdateDetectionSlider,
             ToggleGameOverPanel,
             PrepareHighScoreNumber,
+            PrepareWinLoseUpdate,
             UpdateScoreText,
             ReplayButtonSelected,
             QuitButtonSelected,
