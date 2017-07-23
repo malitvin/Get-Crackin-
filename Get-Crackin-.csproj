@@ -154,6 +154,7 @@
     <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\ProgressWidget\ProgressOrb.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Widgets\ProgressWidget\ProgressWidget.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\Events\MainMenuObserver.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\Panels\HighScorePanel\HighScorePanel.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\Panels\MainMenuPanel.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\Panels\PanelsBlueprint.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\Panels\Play Panel\DifficultyToggle.cs" />

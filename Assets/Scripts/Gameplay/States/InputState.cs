@@ -11,7 +11,6 @@ using UI.Gameplay.Widgets.CombinationWidget;
 
 //C#
 using System.Collections;
-using System.Collections.Generic;
 
 namespace Gameplay.States
 {
