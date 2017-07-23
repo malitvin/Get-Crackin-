@@ -36,7 +36,7 @@ namespace Gameplay.States
         #region Interface Methods
         public void Begin()
         {
-            stateMachine.TriggerHUDEvent(UIEvents.Type.ChangeGameStatusText, "Receiving Combination");
+            stateMachine.TriggerHUDEvent(UIEvents.Type.ChangeGameStatusText, "Receiving Input");
             //Clear user input list
             stateMachine.ClearUserInput();
         }

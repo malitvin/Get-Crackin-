@@ -14,7 +14,7 @@ MonoBehaviour:
   blueprints:
   - name: Easy Blueprint
     difficulty: 0
-    combinationCount: 15
+    combinationCount: 25
     pointsPerCorrectAnswer: 1
     pointsPerCorrectRound: 5
     pointsForWin: 150
@@ -23,7 +23,7 @@ MonoBehaviour:
     timeBetweenNumbersDisplayed: 0.5
   - name: Moderate Blueprint
     difficulty: 1
-    combinationCount: 30
+    combinationCount: 40
     pointsPerCorrectAnswer: 1
     pointsPerCorrectRound: 6
     pointsForWin: 500
@@ -32,7 +32,7 @@ MonoBehaviour:
     timeBetweenNumbersDisplayed: 0.4
   - name: Insane Blueprint
     difficulty: 2
-    combinationCount: 45
+    combinationCount: 50
     pointsPerCorrectAnswer: 1
     pointsPerCorrectRound: 7
     pointsForWin: 10000

@@ -60,7 +60,7 @@ namespace Database
         {
             if (Application.platform == RuntimePlatform.WindowsEditor) return Application.dataPath + "/HighScores.json";
             else if (Application.platform == RuntimePlatform.WindowsPlayer) return Application.dataPath + "/HighScores.json";
-            else if (Application.platform == RuntimePlatform.WebGLPlayer) return "";
+            else if (Application.platform == RuntimePlatform.WebGLPlayer) return "http://www.maxim-litvinov.com/Games/GetCrackin/Build/HighScores.json";
             else
             {
                 Debug.LogError("Currently this Game only has high score support for Windows and WebGL");
