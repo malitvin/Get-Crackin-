@@ -2,6 +2,9 @@
 using UnityEngine;
 
 //C#
+using System;
+using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 
 //Game
@@ -11,39 +14,41 @@ namespace Database
 {
     public class HighScoresCalculator
     {
+        private const string FILE_NAME = "HighScores.json";
+
         private List<HighScore> updatedHighScores;
 
-        public List<HighScore> GetUpdatedHighScores()
+        public IEnumerator GetUpdatedHighScores(Action<List<HighScore>> callback)
         {
-            REFRESH_HighScores();
-            return updatedHighScores;
+            yield return REFRESH_HighScores();
+            callback(updatedHighScores);
         }
 
         /// <summary>
         /// Refresh our high score list
         /// </summary>
-        private void REFRESH_HighScores()
+        private IEnumerator REFRESH_HighScores()
         {
-            updatedHighScores = JSONHelpers.Load<HighScore>(GetFileLocation());
-         }
+            yield return JSONHelpers.Load<HighScore>(GetFileLocation(), value => { updatedHighScores = value; });
+            updatedHighScores = updatedHighScores.OrderByDescending(x => x.score).ToList();
+        }
 
         private void SaveHighScores()
         {
-            JSONHelpers.SAVE(GetFileLocation(), updatedHighScores.ToArray());
+            JSONHelpers.SAVE(GetFileLocation(),FILE_NAME,updatedHighScores.ToArray());
         }
 
-        public bool AttemptToAddScore(string name,int score)
+        public IEnumerator AddScore(string name,int score)
         {
             //make new high score and populate
             HighScore highScore = new HighScore(name,score);
 
-            REFRESH_HighScores();
+            yield return REFRESH_HighScores();
 
             if(updatedHighScores == null)
             {
                 //This is the first person that has played
                 updatedHighScores = new List<HighScore>();
-                return true;
             }
 
             //add it to list
@@ -52,14 +57,13 @@ namespace Database
             //save and return true
             SaveHighScores();
 
-            return false;
         }
 
 
         private string GetFileLocation()
         {
-            if (Application.platform == RuntimePlatform.WindowsEditor) return Application.dataPath + "/HighScores.json";
-            else if (Application.platform == RuntimePlatform.WindowsPlayer) return Application.dataPath + "/HighScores.json";
+            if (Application.platform == RuntimePlatform.WindowsEditor) return Application.dataPath;
+            else if (Application.platform == RuntimePlatform.WindowsPlayer) return Application.dataPath;
             else if (Application.platform == RuntimePlatform.WebGLPlayer) return "http://www.maxim-litvinov.com/Games/GetCrackin/Build/HighScores.json";
             else
             {

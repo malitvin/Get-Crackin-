@@ -2,6 +2,8 @@
 using UnityEngine;
 
 //C#
+using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Database
@@ -21,7 +23,7 @@ namespace Database
 
         private void Update()
         {
-       
+
         }
         #endregion
 
@@ -31,18 +33,21 @@ namespace Database
         /// <param name="name"></param>
         /// <param name="score"></param>
         /// <returns></returns>
-        public bool AddScore(string name, int score)
+        public IEnumerator AddScore(string name, int score)
         {
-            return highScoreCalculator.AttemptToAddScore(name,score);
+            yield return highScoreCalculator.AddScore(name, score);
         }
 
         /// <summary>
         /// Gets a list of all high scores
         /// </summary>
         /// <returns></returns>
-        public List<HighScore> GetHighScores()
+        public IEnumerator GetHighScores(Action<List<HighScore>> callback)
         {
-            return highScoreCalculator.GetUpdatedHighScores();
+            List<HighScore> updated = null;
+            yield return highScoreCalculator.GetUpdatedHighScores(value => { updated = value; });
+            callback(updated);
+
         }
 
     }
