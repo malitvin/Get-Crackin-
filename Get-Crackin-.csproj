@@ -116,6 +116,8 @@
     <Compile Include="Assets\Scripts\Common\UI\Extensions\UIPrimitiveBase.cs" />
     <Compile Include="Assets\Scripts\Common\UI\ImageAspect.cs" />
     <Compile Include="Assets\Scripts\Common\UI\RectTransformExtensions.cs" />
+    <Compile Include="Assets\Scripts\Database\dreamloLeaderBoard.cs" />
+    <Compile Include="Assets\Scripts\Database\dreamloPromoCode.cs" />
     <Compile Include="Assets\Scripts\Database\HighScore.cs" />
     <Compile Include="Assets\Scripts\Database\HighScoreController.cs" />
     <Compile Include="Assets\Scripts\Database\HighScoresCalculator.cs" />
@@ -203,6 +205,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples\Scripts\WarpTextExample.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Scripts\Database\README_FIRST.txt" />
     <None Include="Assets\Shaders\CrossFade.shader" />
     <None Include="Assets\Shaders\LinearGradient.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
