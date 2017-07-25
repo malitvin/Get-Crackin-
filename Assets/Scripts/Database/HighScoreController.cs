@@ -33,18 +33,23 @@ namespace Database
         /// <param name="name"></param>
         /// <param name="score"></param>
         /// <returns></returns>
-        public IEnumerator AddScore(string name, int score)
+        public void AddScore(string name, int score)
         {
-            yield return highScoreCalculator.AddScore(name, score);
+            highScoreCalculator.AddScore(name, score);
+        }
+
+        public void RemoveScore(string name)
+        {
+            highScoreCalculator.RemoveScore(name);
         }
 
         /// <summary>
         /// Gets a list of all high scores
         /// </summary>
         /// <returns></returns>
-        public IEnumerator GetHighScores(Action<List<HighScore>> callback)
+        public IEnumerator GetHighScores(Action<List<dreamloLeaderBoard.Score>> callback)
         {
-            List<HighScore> updated = null;
+            List<dreamloLeaderBoard.Score> updated = null;
             yield return highScoreCalculator.GetUpdatedHighScores(value => { updated = value; });
             callback(updated);
 

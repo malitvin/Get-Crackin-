@@ -26,18 +26,22 @@ namespace Testing
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
-                StartCoroutine(_HighScoreController.AddScore("Test Score", Random.Range(0, 250)));
+                _HighScoreController.AddScore("Test Score", Random.Range(0, 250));
+            }
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                _HighScoreController.RemoveScore("Test Score");
             }
         }
 
 
         private IEnumerator GetHighScores()
         {
-            List<HighScore> highScores = null;
+            List<dreamloLeaderBoard.Score> highScores = null;
             yield return StartCoroutine(_HighScoreController.GetHighScores(value => { highScores = value; }));
             for (int i = 0; i < highScores.Count; i++)
             {
-                Debug.Log(highScores[i].name + "," + highScores[i].score);
+                Debug.Log(highScores[i].playerName + "," + highScores[i].score);
             }
         }
     }

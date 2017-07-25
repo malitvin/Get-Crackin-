@@ -118,7 +118,6 @@
     <Compile Include="Assets\Scripts\Common\UI\RectTransformExtensions.cs" />
     <Compile Include="Assets\Scripts\Database\dreamloLeaderBoard.cs" />
     <Compile Include="Assets\Scripts\Database\dreamloPromoCode.cs" />
-    <Compile Include="Assets\Scripts\Database\HighScore.cs" />
     <Compile Include="Assets\Scripts\Database\HighScoreController.cs" />
     <Compile Include="Assets\Scripts\Database\HighScoresCalculator.cs" />
     <Compile Include="Assets\Scripts\Database\Secrets\SecretKEYS.cs" />
