@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>WebGL:20</UnityBuildTarget>
     <UnityVersion>2017.1.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -123,7 +121,7 @@
     <Compile Include="Assets\Scripts\Database\HighScore.cs" />
     <Compile Include="Assets\Scripts\Database\HighScoreController.cs" />
     <Compile Include="Assets\Scripts\Database\HighScoresCalculator.cs" />
-    <Compile Include="Assets\Scripts\Database\SecretKEYS.cs" />
+    <Compile Include="Assets\Scripts\Database\Secrets\SecretKEYS.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Configuration\GameplayConfig.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Events\GameplayEvent.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Events\GameplayObserver.cs" />
