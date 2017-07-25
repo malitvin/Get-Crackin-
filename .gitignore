@@ -18,6 +18,8 @@ obj/
 *.unityproj
 *.booproj
 
+*.SecretKEYS.cs
+
 
 # ============ #
 # OS generated #
