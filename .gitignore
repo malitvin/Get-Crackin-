@@ -18,7 +18,7 @@ obj/
 *.unityproj
 *.booproj
 
-Assets/Scripts/Secrets/
+Assets/Scripts/Database/Secrets
 
 
 # ============ #
