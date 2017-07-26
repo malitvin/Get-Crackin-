@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Get Crackin GAME</title>
+    <title>Get Crackin' GAME</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>  
@@ -12,13 +12,74 @@
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Builds.json", {onProgress: UnityProgress});
     </script>
   </head>
-  <body>
+  <body bgcolor="black">
     <div class="webgl-content">
       <div id="gameContainer" style="width: 1280px; height: 720px"></div>
       <div class="footer">
         <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
-        <div class="title">Get Crackin'</div>
+        <div class="title">Get CRACKIN'</div>
       </div>
     </div>
   </body>
 </html>
+
+<script>
+  /**
+   * Created by
+   * Matteo Bicocchi @pupunzi
+   * Pietro Polsinelli @ppolsinelli
+   * Follow us as we are creating a game on #football 
+   * with a story: "Football Voodoom" :-)
+   * */
+
+  var appName = "<b>" + Module.codeUrl.replace("Release/", "").replace(".js","") + "</b> ";
+  var canvas = document.getElementsByTagName("canvas")[0];
+  var canvasRect = canvas.getBoundingClientRect();
+
+  var loader = document.createElement("div");
+  loader.id = "loader";
+
+  var loaderWidth = canvas.offsetWidth;
+  var loaderHeight = canvas.offsetHeight;
+
+  document.body.appendChild(loader);
+
+  loader.style.position = "absolute";
+
+  loader.style.top = 0;
+  loader.style.bottom = 0;
+  loader.style.left = 0;
+  loader.style.right = 0;
+  loader.style.margin = "auto";
+  loader.style.width = loaderWidth + "px";
+  loader.style.height = loaderHeight + "px";
+  loader.style.background = "transparent";
+  loader.style.color = "#fff";
+  loader.style.opacity = 0.8;
+  loader.style.fontSize = "16px";
+  loader.style.letterSpacing = "3px";
+  loader.style.fontWeight = "100";
+  loader.style.textAlign = "left";
+  loader.style.padding =  "30px";
+  loader.style.boxSizing = "border-box";
+
+  var dotCount = 0;
+  var checkDisplay = setInterval(function(){
+
+    if(Module.progress.progress > 0) {
+      loader.style.display="none";
+      clearInterval(checkDisplay);
+    } else {
+
+      loader.innerHTML = "Loading " + appName;
+
+      for (var x = 0; x<dotCount; x++){
+        loader.innerHTML+= ".";
+      }
+      
+      dotCount = dotCount >= 40 ? 0 : ++dotCount;
+    }
+  },100)
+</script>
+
+

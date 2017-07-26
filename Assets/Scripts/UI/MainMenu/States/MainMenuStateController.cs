@@ -10,6 +10,7 @@ using UI.MainMenu.Panels;
 using UI.MainMenu.Events;
 
 //C#
+using System.Collections;
 using System.Collections.Generic;
 
 namespace UI.MainMenu.States

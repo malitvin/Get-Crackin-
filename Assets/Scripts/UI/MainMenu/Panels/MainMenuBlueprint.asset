@@ -17,7 +17,7 @@ MonoBehaviour:
     prefab: {fileID: 114477184455694362, guid: fc7c8757c7a53d1418c10c38014f67e7, type: 2}
   - name: High Score Panel
     key: 2
-    prefab: {fileID: 114906944625869566, guid: 5b15610753aa85e4b8c4f8a07b401a2f, type: 2}
+    prefab: {fileID: 114606982541499654, guid: 5b15610753aa85e4b8c4f8a07b401a2f, type: 2}
   - name: Credits Panel
     key: 3
     prefab: {fileID: 114117093482623714, guid: 9d19f2acb6e8f834daa3996f49a64cd5, type: 2}
