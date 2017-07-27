@@ -60,7 +60,7 @@ namespace Managers
         public IEnumerator AddHighScore(string name,int score,Action<bool> callback)
         {
             bool nameExists = false;
-            yield return _HighScoreController.NameExists(name, value => { value = nameExists; });
+            yield return _HighScoreController.NameExists(name, value => { nameExists = value; });
             if(!nameExists) _HighScoreController.AddScore(name, score);
             callback(nameExists);
         }

@@ -90,8 +90,13 @@ namespace UI.Gameplay.Panels
 
         public void Display()
         {
-            EnableInteraction(true);
             FadeTo(1, fadeInTime);
+        }
+
+        protected override void Fade_OnComplete()
+        {
+            base.Fade_OnComplete();
+            if (Grid.alpha > 0) EnableInteraction(true);
         }
 
         public void Hide()

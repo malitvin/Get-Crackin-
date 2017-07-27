@@ -77,6 +77,7 @@ namespace Gameplay.Configuration
 
         #region Public Variables
         [Range(10, 50)]
+        [Tooltip("How many people can be on the high score board")]
         public int leaderboardLength;
 
         [Tooltip("Should be one for every difficulty")]

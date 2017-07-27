@@ -75,9 +75,10 @@ namespace Database
         /// <param name="score"></param>
         /// <param name="callback"></param>
         /// <returns></returns>
-        public IEnumerable IsHighScore(int maxCount,int score,Action<bool> callback)
+        public IEnumerator IsHighScore(int maxCount,int score,Action<bool> callback)
         {
             List<dreamloLeaderBoard.Score> updatedScores = null;
+      
             yield return GetHighScores(value => { updatedScores = value; });
             if (updatedScores.Count < maxCount) callback(true);
             else
@@ -87,6 +88,7 @@ namespace Database
                 {
                     RemoveScore(updatedScores[updatedScores.Count - 1].playerName);
                     callback(true);
+                    Debug.Log("High score achieved!");
                 }
                 else
                 {
