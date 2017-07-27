@@ -9,7 +9,11 @@ using UI.Framework;
 using UI.MainMenu.Panels;
 using UI.MainMenu.Events;
 
+using Managers.GameSettings;
+using Database;
+
 //C#
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -79,12 +83,19 @@ namespace UI.MainMenu.States
         {
             get { return baseSoundController ?? (baseSoundController = FindObjectOfType<BaseSoundController>()); }
         }
+
+        private HighScoreController highScoreController;
+        private HighScoreController _HighScoreController
+        {
+            get { return highScoreController ?? (highScoreController = FindObjectOfType<HighScoreController>()); }
+        }
         #endregion
 
         #region Unity Methods
         private void Start()
         {
             ChangeState(MainMenuState.Main);
+            GameSettings.SetGameDifficulty(GameSettings.Difficulty.Easy);
         }
         private void Update()
         {
@@ -118,6 +129,15 @@ namespace UI.MainMenu.States
         public void TriggerUIEvent(UIEvents.Type type)
         {
             _MainMenuObserver.TriggerEvent(type);
+        }
+        #endregion
+
+        #region High Score Methods
+        public IEnumerator GetHighScores(Action<List<dreamloLeaderBoard.Score>> callback)
+        {
+            List<dreamloLeaderBoard.Score> scores = null;
+            yield return _HighScoreController.GetHighScores(value => { scores = value; });
+            callback(scores);
         }
         #endregion
 
