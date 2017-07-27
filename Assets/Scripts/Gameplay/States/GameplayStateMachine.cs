@@ -160,6 +160,11 @@ namespace Gameplay.States
             return gameBlueprint.GetBlueprint(GameSettings.GetDifficulty());
         }
 
+        public int GetHighScoreMax()
+        {
+            return gameBlueprint.leaderboardLength;
+        }
+
         /// <summary>
         /// Generate our combination
         /// </summary>

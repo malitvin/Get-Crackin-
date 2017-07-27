@@ -29,13 +29,13 @@ namespace UI.MainMenu.Panels.HighScores
 
         private IEnumerator GenerateHighScores()
         {
+            yield return new WaitForEndOfFrame();
             List<dreamloLeaderBoard.Score> scores = null;
             yield return Controller.GetHighScores(value => { scores = value; });
             if (scores == null) Debug.LogError("Scores is null for some reason, check Database namespace");
 
-
             int count = scores.Count;
-            Debug.Log(count);
+            
             for(int i=0; i < scores.Count;i++)
             {
                 HighScoreText text = Instantiate(highScorePrefab, container, false) as HighScoreText;

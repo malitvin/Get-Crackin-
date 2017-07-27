@@ -40,7 +40,7 @@ namespace Database
         public IEnumerator NameExists(string name,Action<bool> callback)
         {
             bool exists = false;
-            yield return _DreamLoLeaderboard.ScoreExits(name, value => { value = exists; });
+            yield return _DreamLoLeaderboard.ScoreExits(name, value => { exists = value; });
             callback(exists);
         }
 

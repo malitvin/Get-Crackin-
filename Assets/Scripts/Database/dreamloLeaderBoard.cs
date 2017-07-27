@@ -189,7 +189,6 @@ namespace Database
         public List<Score> ToListHighToLow()
         {
             Score[] scoreList = this.ToScoreArray();
-
             if (scoreList == null) return new List<Score>();
 
             List<Score> genericList = new List<Score>(scoreList);

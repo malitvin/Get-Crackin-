@@ -63,7 +63,13 @@ namespace Managers
             yield return _HighScoreController.NameExists(name, value => { value = nameExists; });
             if(!nameExists) _HighScoreController.AddScore(name, score);
             callback(nameExists);
+        }
 
+        public IEnumerator IsHighScore(int maxCount,int score,Action<bool> callback)
+        {
+            bool isHighScore = false;
+            yield return _HighScoreController.IsHighScore(maxCount, score, value => { isHighScore = value; });
+            callback(isHighScore);
         }
     }
 }

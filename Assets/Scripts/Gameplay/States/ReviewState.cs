@@ -5,6 +5,7 @@ using UnityEngine;
 using Audio;
 using UI.Framework;
 using UI.Gameplay.Widgets.CombinationWidget;
+using Managers;
 
 //C#
 using System.Collections;
@@ -30,6 +31,7 @@ namespace Gameplay.States
 
         private int pointsThisRound = 0;
         private bool perfectRound = true;
+        private bool achieveHighScore = false;
         #endregion
 
         #region Interface Methods
@@ -90,6 +92,7 @@ namespace Gameplay.States
         {
             reviewing = true;
             perfectRound = true;
+            achieveHighScore = false;
             reviewTimer = 0;
             currentReviewIndex = 0;
             pointsThisRound = 0;
@@ -103,7 +106,7 @@ namespace Gameplay.States
             if (stateMachine.detectionLevel >= 100)
             {
                 //to game over state
-                stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.GameOver));
+                stateMachine.StartCoroutine(ChangeState(GameplayStateMachine.GameplayState.GameOver));
             }
             //You won! Somehow
             else if(stateMachine.GetRound() == stateMachine.GetGameBlueprint().combinationCount)
@@ -114,7 +117,7 @@ namespace Gameplay.States
                 stateMachine.playerScore += stateMachine.GetGameBlueprint().pointsForWin;
                 stateMachine.TriggerHUDEvent(UIEvents.Type.UpdateScoreText, stateMachine.playerScore.ToString());
                 //To Game over state
-                stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.GameOver));
+                stateMachine.StartCoroutine(ChangeState(GameplayStateMachine.GameplayState.GameOver));
             }
             //continue game
             else
@@ -125,11 +128,16 @@ namespace Gameplay.States
                 //Update Score Text
                 stateMachine.TriggerHUDEvent(UIEvents.Type.UpdateScoreText,GetUpdatedScore().ToString());
                 //TO DISPLAY STATE
-                stateMachine.StartCoroutine(FadeOutNumbers(GameplayStateMachine.GameplayState.Display));
+                stateMachine.StartCoroutine(ChangeState(GameplayStateMachine.GameplayState.Display));
             }
         }
-        private IEnumerator FadeOutNumbers(GameplayStateMachine.GameplayState nextState)
+        private IEnumerator ChangeState(GameplayStateMachine.GameplayState nextState)
         {
+            if(nextState == GameplayStateMachine.GameplayState.GameOver)
+            {
+                yield return UpdateHighScoreGameplay();
+            }
+
             //wait a second to give the user time
             yield return new WaitForSeconds(1.5f);
             //remove numbers on UI
@@ -138,6 +146,13 @@ namespace Gameplay.States
             yield return new WaitForSeconds(combinationFadeOutTime);
             //TO Next State
             stateMachine.ChangeState(nextState);
+        }
+
+        private IEnumerator UpdateHighScoreGameplay()
+        {
+            bool hasHighScore = false;
+            yield return GAMEManager.Instance.IsHighScore(stateMachine.GetHighScoreMax(), stateMachine.playerScore, value => { hasHighScore = value; });
+            achieveHighScore = hasHighScore;
         }
 
         private int GetUpdatedScore()
