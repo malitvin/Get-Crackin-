@@ -43,6 +43,13 @@ namespace Database
             highScoreCalculator.RemoveScore(name);
         }
 
+        public IEnumerator NameExists(string name,Action<bool> callback)
+        {
+            bool exists = false;
+            yield return highScoreCalculator.NameExists(name,value => { value = exists; });
+            callback(exists);
+        }
+
         /// <summary>
         /// Gets a list of all high scores
         /// </summary>
@@ -53,6 +60,24 @@ namespace Database
             yield return highScoreCalculator.GetUpdatedHighScores(value => { updated = value; });
             callback(updated);
 
+        }
+
+        public IEnumerable IsHighScore(int maxCount,int score,Action<bool> callback)
+        {
+            List<dreamloLeaderBoard.Score> updatedScores = null;
+            yield return GetHighScores(value => { value = updatedScores; });
+            if (updatedScores.Count < maxCount) callback(true);
+            else
+            {
+                if (updatedScores[updatedScores.Count - 1].score < score)
+                {
+                    RemoveScore(updatedScores[updatedScores.Count - 1].playerName);
+                }
+                else
+                {
+                    callback(false);
+                }
+            }
         }
 
     }

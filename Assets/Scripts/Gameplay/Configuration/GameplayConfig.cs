@@ -20,6 +20,7 @@ namespace Gameplay.Configuration
         {
             public string name;
             public GameSettings.Difficulty difficulty;
+
             [Range(1, 60)]
             public int combinationCount;
 
@@ -75,6 +76,9 @@ namespace Gameplay.Configuration
         }
 
         #region Public Variables
+        [Range(10, 50)]
+        public int leaderboardLength;
+
         [Tooltip("Should be one for every difficulty")]
         public GameplayBlueprint[] blueprints;
 

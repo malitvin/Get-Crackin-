@@ -1,10 +1,14 @@
 ﻿//Game
 using Common.Managers;
 using Gameplay.Events;
-
+using Database;
 
 //Audio
 using Audio;
+
+//C#
+using System;
+using System.Collections;
 
 namespace Managers
 {
@@ -27,13 +31,19 @@ namespace Managers
             get { return baseSoundController ?? (baseSoundController = FindObjectOfType<BaseSoundController>()); }
         }
 
+        private HighScoreController highScoreController;
+        private HighScoreController _HighScoreController
+        {
+            get { return highScoreController ?? (highScoreController = FindObjectOfType<HighScoreController>()); }
+        }
+
 
         public void TriggerGameplayEvent(GameplayEvent.Type type,string message ="")
         {
             _GameplayObserver.TriggerEvent(type, message);
         }
 
-        public void StartListening(GameplayEvent.Type type,System.Action<string> listen)
+        public void StartListening(GameplayEvent.Type type,Action<string> listen)
         {
             _GameplayObserver.StartListening(type, listen);
         }
@@ -45,6 +55,15 @@ namespace Managers
         public void PlaySound(AudioFiles.GameplaySoundClip clip)
         {
             _BaseSoundController.PlayGameplaySound(clip, new UnityEngine.Vector3(0, 0, 0));
+        }
+
+        public IEnumerator AddHighScore(string name,int score,Action<bool> callback)
+        {
+            bool nameExists = false;
+            yield return _HighScoreController.NameExists(name, value => { value = nameExists; });
+            if(!nameExists) _HighScoreController.AddScore(name, score);
+            callback(nameExists);
+
         }
     }
 }

@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 //My high scores
 
+//C#
+using System;
+using System.Linq;
+
 namespace Database
 {
 
@@ -108,6 +112,13 @@ namespace Database
             if (TooManyRequests()) return;
 
             StartCoroutine(RemoveScoreWithPipe(playerName));
+        }
+
+        public IEnumerator ScoreExits(string playerName, Action<bool> callback)
+        {
+            yield return GetScores();
+            bool contains = ToListHighToLow().Any(cus => cus.playerName == playerName);
+            callback(contains);
         }
 
         // This function saves a trip to the server. Adds the score and retrieves results in one trip.

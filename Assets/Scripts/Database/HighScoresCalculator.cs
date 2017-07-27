@@ -1,14 +1,11 @@
 ﻿//Unity
-using UnityEngine;
 
 //C#
 using System;
-using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
 //Game
-using Common.JSON;
 
 namespace Database
 {
@@ -38,6 +35,13 @@ namespace Database
         public void RemoveScore(string name)
         {
             _DreamLoLeaderboard.RemoveScore(name);
+        }
+
+        public IEnumerator NameExists(string name,Action<bool> callback)
+        {
+            bool exists = false;
+            yield return _DreamLoLeaderboard.ScoreExits(name, value => { value = exists; });
+            callback(exists);
         }
 
     }
