@@ -94,7 +94,7 @@ namespace UI.Gameplay.Panels
         {
             bool achieveScore = message.BoolParse();
             //disbale continue grid if achieved high score
-            EnableButtonGrid(achieveScore);
+            EnableButtonGrid(!achieveScore);
             //move button grid if achieved high score
             _ButtonGrid.SetRectAnchoredPosition(achieveScore ? new Vector2(0, 30) : new Vector2(0, 350));
             //enable high score input
@@ -147,6 +147,7 @@ namespace UI.Gameplay.Panels
             StartCoroutine(Verfiy(name));
         }
         #endregion
+
         #region Core High Score Methods
         private IEnumerator Verfiy(string name)
         {
@@ -159,7 +160,9 @@ namespace UI.Gameplay.Panels
             }
             else
             {
-
+                TriggerHUDEvent(UIEvents.Type.SubmitHighScoreButtonSeleceted, name);
+                _HighScoreInput.EnableInteraction(false);
+                _HighScoreInput.FadeTo(0, 1);
             }
         }
         #endregion

@@ -34,6 +34,7 @@ namespace UI.Framework
             PrepareHighScoreNumber,
             PrepareWinLoseUpdate,
             UpdateScoreText,
+            SubmitHighScoreButtonSeleceted,
             ReplayButtonSelected,
             QuitButtonSelected,
             /// <summary>

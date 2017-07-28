@@ -66,6 +66,10 @@ namespace Gameplay.States
             //listen for quit button selected on quit panel
             Action<string> ListenForQuitButton = new Action<string>(QuitGame);
             stateMachine.ListenForHUDEvent(UIEvents.Type.QuitButtonSelected, ListenForQuitButton);
+
+            //listen for submitting high score
+            Action<string> ListenForHighScoreSubmit = new Action<string>(SubmitHighScore);
+            stateMachine.ListenForHUDEvent(UIEvents.Type.SubmitHighScoreButtonSeleceted, ListenForHighScoreSubmit);
         }
 
 
@@ -103,6 +107,15 @@ namespace Gameplay.States
             stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareWinLoseUpdate, stateMachine.gameWon.ToString()); //prepare win/lose on UI
             stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareHighScoreNumber, stateMachine.achievedHighScore.ToString()); //prepary High score achievement on UI
             stateMachine.TriggerHUDEvent(UIEvents.Type.ToggleGameOverPanel, HUD.VisibleToggle.Display.ToString()); //display game over panel
+        }
+
+        /// <summary>
+        /// when the submit high score button is pressed
+        /// </summary>
+        /// <param name="name"></param>
+        private void SubmitHighScore(string name)
+        {
+            GAMEManager.Instance.AddHighScore(name, stateMachine.playerScore);
         }
 
         /// <summary>

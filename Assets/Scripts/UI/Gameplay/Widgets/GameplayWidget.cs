@@ -18,9 +18,9 @@ namespace UI.Gameplay.Widgets
             get { return hud ?? (hud = GetComponentInParent<HUD>()); }
         }
 
-        protected void TriggerHUDEvent(UIEvents.Type type)
+        protected void TriggerHUDEvent(UIEvents.Type type,string message="")
         {
-            _HUD.TriggerEvent(type);
+            _HUD.TriggerEvent(type,message);
         }
 
         protected void StartListenting(UIEvents.Type type,System.Action<string> listener)
