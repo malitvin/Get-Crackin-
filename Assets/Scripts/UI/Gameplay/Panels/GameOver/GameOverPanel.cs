@@ -163,6 +163,8 @@ namespace UI.Gameplay.Panels
                 TriggerHUDEvent(UIEvents.Type.SubmitHighScoreButtonSeleceted, name);
                 _HighScoreInput.EnableInteraction(false);
                 _HighScoreInput.FadeTo(0, 1);
+                _ButtonGrid.EnableInteraction(true);
+                _ButtonGrid.FadeTo(1, 1);
             }
         }
         #endregion

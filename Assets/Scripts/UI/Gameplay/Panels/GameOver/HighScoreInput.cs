@@ -90,9 +90,9 @@ namespace UI.Gameplay.Panels
         {
             _InputText.color = Color.red;
             _InputField.text = "NAME EXISTS!";
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             _InputText.color = originalInputColor;
-            _InputText.text = "";
+            _InputField.text="";
             EnableInteraction(true);
         }
 
