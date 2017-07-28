@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5af2272faeaec54397293fd5b0a9fda, type: 3}
   m_Name: GameplayConfig
   m_EditorClassIdentifier: 
-  leaderboardLength: 50
+  leaderboardLength: 10
   blueprints:
   - name: Easy Blueprint
     difficulty: 0
     combinationCount: 25
-    pointsPerCorrectAnswer: 1
+    pointsPerCorrectAnswer: 100
     pointsPerCorrectRound: 5
     pointsForWin: 150
     incorrectPenalty: 100

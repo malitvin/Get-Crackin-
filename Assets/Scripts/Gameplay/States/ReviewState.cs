@@ -31,7 +31,6 @@ namespace Gameplay.States
 
         private int pointsThisRound = 0;
         private bool perfectRound = true;
-        private bool achieveHighScore = false;
         #endregion
 
         #region Interface Methods
@@ -92,7 +91,6 @@ namespace Gameplay.States
         {
             reviewing = true;
             perfectRound = true;
-            achieveHighScore = false;
             reviewTimer = 0;
             currentReviewIndex = 0;
             pointsThisRound = 0;
@@ -152,7 +150,7 @@ namespace Gameplay.States
         {
             bool hasHighScore = false;
             yield return GAMEManager.Instance.IsHighScore(stateMachine.GetHighScoreMax(), stateMachine.playerScore, value => { hasHighScore = value; });
-            achieveHighScore = hasHighScore;
+            stateMachine.achievedHighScore = hasHighScore;
         }
 
         private int GetUpdatedScore()

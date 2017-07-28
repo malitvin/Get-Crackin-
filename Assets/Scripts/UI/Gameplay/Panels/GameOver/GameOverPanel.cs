@@ -11,6 +11,9 @@ using UI.Framework;
 using UI.Gameplay.Events;
 using UI.Gameplay.Widgets;
 
+//Managers
+using Managers;
+
 
 //C#
 using System;
@@ -22,10 +25,23 @@ namespace UI.Gameplay.Panels
         public enum Options { Replay, Quit }
 
         public Image header;
+
         private TextMeshProUGUI txt;
         private TextMeshProUGUI HeaderText
         {
             get { return txt ?? (txt = header.GetComponentInChildren<TextMeshProUGUI>()); }
+        }
+
+        private UIWidget buttonGroup;
+        private UIWidget _ButtonGrid
+        {
+            get { return buttonGroup ?? (buttonGroup = GetComponentInChildren<HorizontalLayoutGroup>().GetComponent<UIWidget>()); }
+        }
+
+        private HighScoreInput highScoreInput;
+        private HighScoreInput _HighScoreInput
+        {
+            get { return highScoreInput ?? (highScoreInput = GetComponentInChildren<HighScoreInput>()); }
         }
 
 
@@ -76,6 +92,12 @@ namespace UI.Gameplay.Panels
         private void ListenerAchievedHighScore(string message)
         {
             bool achieveScore = message.BoolParse();
+            //disbale continue grid if achieved high score
+            EnableButtonGrid(achieveScore);
+            //move button grid if achieved high score
+            _ButtonGrid.SetRectAnchoredPosition(achieveScore ? new Vector2(0,30) : new Vector2(0,350));
+            //enable high score input
+            _HighScoreInput.MakeVisible(achieveScore);
         }
 
         private void ListenerDisplay(string message)
@@ -109,6 +131,12 @@ namespace UI.Gameplay.Panels
         {
             if (option == Options.Quit) TriggerHUDEvent(UIEvents.Type.QuitButtonSelected);
             else TriggerHUDEvent(UIEvents.Type.ReplayButtonSelected);
+        }
+
+        private void EnableButtonGrid(bool enable)
+        {
+            _ButtonGrid.SetDirectAlpha((enable) ? 1 : 0.2f);
+            _ButtonGrid.EnableInteraction(enable);
         }
     }
 }

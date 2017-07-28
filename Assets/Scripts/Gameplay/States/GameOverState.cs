@@ -101,7 +101,7 @@ namespace Gameplay.States
         {
             yield return new WaitForSeconds(waitTime);
             stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareWinLoseUpdate, stateMachine.gameWon.ToString()); //prepare win/lose on UI
-            stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareHighScoreNumber, false.ToString()); //prepary High score achievement on UI
+            stateMachine.TriggerHUDEvent(UIEvents.Type.PrepareHighScoreNumber, stateMachine.achievedHighScore.ToString()); //prepary High score achievement on UI
             stateMachine.TriggerHUDEvent(UIEvents.Type.ToggleGameOverPanel, HUD.VisibleToggle.Display.ToString()); //display game over panel
         }
 

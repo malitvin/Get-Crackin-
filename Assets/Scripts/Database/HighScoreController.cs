@@ -49,10 +49,10 @@ namespace Database
         /// <param name="name"></param>
         /// <param name="callback"></param>
         /// <returns></returns>
-        public IEnumerator NameExists(string name,Action<bool> callback)
+        public IEnumerator NameExists(string name, Action<bool> callback)
         {
             bool exists = false;
-            yield return highScoreCalculator.NameExists(name,value => { exists = value; });
+            yield return highScoreCalculator.NameExists(name, value => { exists = value; });
             callback(exists);
         }
 
@@ -75,15 +75,16 @@ namespace Database
         /// <param name="score"></param>
         /// <param name="callback"></param>
         /// <returns></returns>
-        public IEnumerator IsHighScore(int maxCount,int score,Action<bool> callback)
+        public IEnumerator IsHighScore(int maxCount, int score, Action<bool> callback)
         {
             List<dreamloLeaderBoard.Score> updatedScores = null;
-      
+
             yield return GetHighScores(value => { updatedScores = value; });
-            if (updatedScores.Count < maxCount) callback(true);
+            if (score == 0) callback(false);
+            else if (updatedScores.Count < maxCount) callback(true);
             else
             {
-                
+
                 if (updatedScores[updatedScores.Count - 1].score < score)
                 {
                     RemoveScore(updatedScores[updatedScores.Count - 1].playerName);

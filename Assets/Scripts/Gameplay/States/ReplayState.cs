@@ -40,6 +40,7 @@ namespace Gameplay.States
             //RESET MAIN VARIABLES
             stateMachine.GenerateCombination();
             stateMachine.gameWon = false;
+            stateMachine.achievedHighScore = false;
             stateMachine.round = 0;
             stateMachine.detectionLevel = 0;
             stateMachine.currentCombinationCount = 0;

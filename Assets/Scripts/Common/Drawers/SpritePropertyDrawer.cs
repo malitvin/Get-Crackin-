@@ -35,8 +35,7 @@ public class SpritePropertyDrawer : PropertyDrawer
             position.width = EditorGUIUtility.labelWidth;
             GUI.Label(position, prop.displayName);
 
-            Sprite ourSprite = prop.objectReferenceValue as Sprite;
-            Vector2 spriteAspect = ImageAspect.MaintainAspectRatio(new Vector2(ourSprite.rect.width,ourSprite.rect.height), (int)maxTextureSizeX, (int)maxTextureSizeY);
+            Vector2 spriteAspect = new Vector2(maxTextureSizeX,maxTextureSizeY);
             position.x += position.width;
             position.width =spriteAspect.x;
             position.height = spriteAspect.y;

@@ -43,6 +43,8 @@ namespace Gameplay.States
         [ReadOnlyCustom]
         public bool gameWon = false;
         [ReadOnlyCustom]
+        public bool achievedHighScore = false;
+        [ReadOnlyCustom]
         public float detectionLevel = 0;
         [ReadOnlyCustom]
         public int round = 0;

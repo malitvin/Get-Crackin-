@@ -176,7 +176,7 @@ namespace UI.Framework
         #endregion
 
         #region Visibility & Interaction
-        public void MakeVisible(bool enable, bool affectInteraction = true)
+        public virtual void MakeVisible(bool enable, bool affectInteraction = true)
         {
             Grid.alpha = enable ? 1 : 0;
             if (affectInteraction) EnableInteraction(enable);
@@ -229,6 +229,10 @@ namespace UI.Framework
         public void SetRectAnchoredPosition(Vector2 v)
         {
             Rect.anchoredPosition = v;
+        }
+        public void SetDirectAlpha(float alpha)
+        {
+            Grid.alpha = alpha;
         }
         #endregion
     }
