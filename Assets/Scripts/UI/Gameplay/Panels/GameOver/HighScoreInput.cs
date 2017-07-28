@@ -11,9 +11,8 @@ using UI.Framework;
 //Managers
 
 
-
 //C#
-
+using System.Collections;
 
 namespace UI.Gameplay.Panels
 {
@@ -35,6 +34,12 @@ namespace UI.Gameplay.Panels
             get { return inputField ?? (inputField = GetComponentInChildren<InputField>()); }
         }
 
+        private Text inputText;
+        private Text _InputText
+        {
+            get { return inputText ?? (inputText = _InputField.GetComponentInChildren<Text>()); }
+        }
+
         private Button submitButton;
         private Button _SubmitButton
         {
@@ -42,15 +47,18 @@ namespace UI.Gameplay.Panels
         }
         #endregion
 
+        private Color originalInputColor;
+
         protected override void Awake()
         {
             base.Awake();
             _SubmitButton.onClick.AddListener(() => SubmitButton_OnSelected());
+            originalInputColor = _InputText.color;
         }
 
         private void Update()
         {
-            if(_InputField.text.Length < 2)
+            if(_InputField.text.Length < 3)
             {
                 _SubmitButton.interactable = false;
             }
@@ -69,7 +77,23 @@ namespace UI.Gameplay.Panels
 
         protected void SubmitButton_OnSelected()
         {
+            _ParenPanel.SubmitButton_OnSelected(_InputField.text);
+            EnableInteraction(false);
+        }
 
+        public void TryAgain()
+        {
+            StartCoroutine(TryAgainRoutine());
+        }
+
+        private IEnumerator TryAgainRoutine()
+        {
+            _InputText.color = Color.red;
+            _InputField.text = "NAME EXISTS!";
+            yield return new WaitForSeconds(2);
+            _InputText.color = originalInputColor;
+            _InputText.text = "";
+            EnableInteraction(true);
         }
 
     }

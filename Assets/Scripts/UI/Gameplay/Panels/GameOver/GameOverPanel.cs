@@ -17,6 +17,7 @@ using Managers;
 
 //C#
 using System;
+using System.Collections;
 
 namespace UI.Gameplay.Panels
 {
@@ -79,7 +80,7 @@ namespace UI.Gameplay.Panels
             Action<String> ToggleGameOverPanel = new Action<string>(ListenerDisplay);
             StartListenting(UIEvents.Type.ToggleGameOverPanel, ToggleGameOverPanel);
 
-            
+
         }
 
         private void SetHeader(string message)
@@ -95,10 +96,11 @@ namespace UI.Gameplay.Panels
             //disbale continue grid if achieved high score
             EnableButtonGrid(achieveScore);
             //move button grid if achieved high score
-            _ButtonGrid.SetRectAnchoredPosition(achieveScore ? new Vector2(0,30) : new Vector2(0,350));
+            _ButtonGrid.SetRectAnchoredPosition(achieveScore ? new Vector2(0, 30) : new Vector2(0, 350));
             //enable high score input
             _HighScoreInput.MakeVisible(achieveScore);
         }
+
 
         private void ListenerDisplay(string message)
         {
@@ -127,16 +129,40 @@ namespace UI.Gameplay.Panels
             FadeTo(0, fadeOutTime);
         }
 
+        private void EnableButtonGrid(bool enable)
+        {
+            _ButtonGrid.SetDirectAlpha((enable) ? 1 : 0.2f);
+            _ButtonGrid.EnableInteraction(enable);
+        }
+
+        #region Button Selected Methods
         public void GameOverButton_OnSelected(Options option)
         {
             if (option == Options.Quit) TriggerHUDEvent(UIEvents.Type.QuitButtonSelected);
             else TriggerHUDEvent(UIEvents.Type.ReplayButtonSelected);
         }
 
-        private void EnableButtonGrid(bool enable)
+        public void SubmitButton_OnSelected(string name)
         {
-            _ButtonGrid.SetDirectAlpha((enable) ? 1 : 0.2f);
-            _ButtonGrid.EnableInteraction(enable);
+            StartCoroutine(Verfiy(name));
         }
+        #endregion
+        #region Core High Score Methods
+        private IEnumerator Verfiy(string name)
+        {
+            bool nameExists = false;
+            yield return GAMEManager.Instance.NameExistsInHighScores(name, value => { nameExists = value; });
+            if(nameExists)
+            {
+                _HighScoreInput.TryAgain();
+                GAMEManager.Instance.PlaySound(Audio.AudioFiles.GameplaySoundClip.Incorrect);
+            }
+            else
+            {
+
+            }
+        }
+        #endregion
+
     }
 }

@@ -49,9 +49,15 @@ MonoBehaviour:
     group: {fileID: 243140937335932002, guid: 3e768e97ad985bc4e99849f06c26f7e2, type: 2}
     key: 4
   UISounds:
-  - name: 
+  - name: Cartoon Pop
     clip: {fileID: 8300000, guid: 31cf1ed0972cf274f84d0b16476c6b9c, type: 3}
     volume: 1
     pitch: 1
     group: {fileID: 0}
     key: 0
+  - name: 8 Bit Error
+    clip: {fileID: 8300000, guid: 618624579d8b64449a79950e2f67598a, type: 3}
+    volume: 1
+    pitch: 1
+    group: {fileID: 243840571000210078, guid: bdbd314c2db38b04696123643a476736, type: 2}
+    key: 1

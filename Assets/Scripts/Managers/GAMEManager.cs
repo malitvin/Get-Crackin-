@@ -38,12 +38,12 @@ namespace Managers
         }
 
 
-        public void TriggerGameplayEvent(GameplayEvent.Type type,string message ="")
+        public void TriggerGameplayEvent(GameplayEvent.Type type, string message = "")
         {
             _GameplayObserver.TriggerEvent(type, message);
         }
 
-        public void StartListening(GameplayEvent.Type type,Action<string> listen)
+        public void StartListening(GameplayEvent.Type type, Action<string> listen)
         {
             _GameplayObserver.StartListening(type, listen);
         }
@@ -57,15 +57,20 @@ namespace Managers
             _BaseSoundController.PlayGameplaySound(clip, new UnityEngine.Vector3(0, 0, 0));
         }
 
-        public IEnumerator AddHighScore(string name,int score,Action<bool> callback)
+        public void AddHighScore(string name, int score)
+        {
+
+            _HighScoreController.AddScore(name, score);
+        }
+
+        public IEnumerator NameExistsInHighScores(string name, Action<bool> callback)
         {
             bool nameExists = false;
             yield return _HighScoreController.NameExists(name, value => { nameExists = value; });
-            if(!nameExists) _HighScoreController.AddScore(name, score);
             callback(nameExists);
         }
 
-        public IEnumerator IsHighScore(int maxCount,int score,Action<bool> callback)
+        public IEnumerator IsHighScore(int maxCount, int score, Action<bool> callback)
         {
             bool isHighScore = false;
             yield return _HighScoreController.IsHighScore(maxCount, score, value => { isHighScore = value; });

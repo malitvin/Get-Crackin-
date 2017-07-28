@@ -12,7 +12,7 @@ namespace Audio
         /// Make Sure these enums match the audio files names
         /// </summary>
         public enum GameplaySoundClip {UserInput,DisplayInput,Correct,Incorrect,GameOver,GameWin}
-        public enum UISoundClip {CartoonPop}
+        public enum UISoundClip {CartoonPop,BitError}
 
        
         public class AudioBlueprint
